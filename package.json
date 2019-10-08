@@ -5,7 +5,9 @@
 	"private": true,
 	"license": "MIT",
 	"dependencies": {
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"passport": "^0.4.0",
+		"passport-google-oauth20": "^2.0.0"
 	},
 	"devDependencies": {
 		"dotenv": "^8.1.0"
