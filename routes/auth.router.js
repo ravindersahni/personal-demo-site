@@ -5,6 +5,8 @@ require('../models/User');
 require('../services/passport.service');
 
 module.exports = authRouter
+	.use(passport.initialize())
+	.use(passport.session())
 	.get(
 		'/google',
 		passport.authenticate('google', {

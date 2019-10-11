@@ -1,6 +1,5 @@
 const app = require('express')();
 const mongoose = require('mongoose');
-const passport = require('passport');
 const cookieSession = require('cookie-session');
 
 const mongoOpts = {
@@ -17,15 +16,12 @@ else {
 	mongoose.connect(process.env.MONGO_URI_PROD, mongoOpts);
 }
 
-app.use(
-	cookieSession({
-		maxAge: 30 * 24 * 60 * 60,
-		keys: [ process.env.COOKIE_KEY ]
-	})
-);
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use('/auth', require('./routes/auth.router'));
-
-app.listen(process.env.PORT);
+app
+	.use(
+		cookieSession({
+			maxAge: 30 * 24 * 60 * 60,
+			keys: [ process.env.COOKIE_KEY ]
+		})
+	)
+	.use('/auth', require('./routes/auth.router'))
+	.listen(process.env.PORT);
