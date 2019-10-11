@@ -2,19 +2,15 @@ const app = require('express')();
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 
-const mongoOpts = {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-};
-
 const env = process.env.NODE_ENV || 'development';
 if (env === 'development') {
 	require('dotenv').config();
-	mongoose.connect(process.env.MONGO_URI_DEV, mongoOpts);
 }
-else {
-	mongoose.connect(process.env.MONGO_URI_PROD, mongoOpts);
-}
+
+mongoose.connect(process.env.MONGO_URI, {
+	useNewUrlParser: true,
+	useUnifiedTopology: true
+});
 
 app
 	.use(
