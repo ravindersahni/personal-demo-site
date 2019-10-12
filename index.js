@@ -1,5 +1,6 @@
 const app = require('express')();
 const mongoose = require('mongoose');
+const passport = require('passport');
 const cookieSession = require('cookie-session');
 
 const env = process.env.NODE_ENV || 'development';
@@ -19,5 +20,8 @@ app
 			keys: [ process.env.COOKIE_KEY ]
 		})
 	)
+	.use(passport.initialize())
+	.use(passport.session())
 	.use('/auth', require('./routes/auth.router'))
+	.use('/api', require('./routes/api.router'))
 	.listen(process.env.PORT);
