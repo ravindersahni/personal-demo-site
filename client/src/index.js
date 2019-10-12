@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import store from './redux/store';
 import App from './components/App.component';
-import rootReducer from './redux/reducers';
-
-const store = createStore(rootReducer, {}, applyMiddleware());
+import 'materialize-css/dist/css/materialize.min.css';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
 	</Provider>,
 	document.querySelector('#root')
 );
