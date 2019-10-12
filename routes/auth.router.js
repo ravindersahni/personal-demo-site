@@ -11,4 +11,6 @@ module.exports = authRouter
 			scope: [ 'profile', 'email' ]
 		})
 	)
-	.get('/google/callback', passport.authenticate('google'));
+	.get('/google/callback', passport.authenticate('google'), (req, res) =>
+		res.redirect('/surveys')
+	);
