@@ -1,18 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Payment from '../payment/Payment.component';
 
 const Header = ({ user }) => {
 	const appName = 'One Cool App';
 
-	const getContent = user => {
+	const getNavItems = user => {
 		switch (user) {
 			case null:
-				return '';
+				return;
 			case false:
-				return <a href="/auth/google">Log In with Google</a>;
+				return (
+					<li key="login">
+						<a href="/auth/google">Log In with Google</a>
+					</li>
+				);
 			default:
-				return <a href="/api/logout">Log Out</a>;
+				return [
+					<li key="payment">
+						<Payment />
+					</li>,
+					<li key="logout">
+						<a href="/api/logout">Log Out</a>
+					</li>
+				];
 		}
 	};
 
@@ -24,7 +36,7 @@ const Header = ({ user }) => {
 						{appName}
 					</Link>
 					<ul id="nav-mobile" className="right">
-						<li>{getContent(user)}</li>
+						{getNavItems(user)}
 					</ul>
 				</div>
 			</nav>
