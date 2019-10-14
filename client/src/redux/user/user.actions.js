@@ -8,3 +8,11 @@ export const fetchUser = () => async dispatch => {
 		payload: res.data
 	});
 };
+
+export const processUserPayment = token => async dispatch => {
+	const res = await axios.post('/billing/stripe', token);
+	dispatch({
+		type: FETCH_USER,
+		payload: res.data
+	});
+};

@@ -1,0 +1,22 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import StripeCheckout from 'react-stripe-checkout';
+import { processUserPayment } from '../../redux/user/user.actions';
+
+const Payment = ({ processUserPayment }) => {
+	return (
+		<StripeCheckout
+			name="One Cool App"
+			description="Spend your money while you can!"
+			amount={500}
+			token={processUserPayment}
+			stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
+		>
+			<button type="button" className="">
+				Add Credits
+			</button>
+		</StripeCheckout>
+	);
+};
+
+export default connect(null, { processUserPayment })(Payment);
