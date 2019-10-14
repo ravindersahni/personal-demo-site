@@ -18,6 +18,9 @@ const Header = ({ user }) => {
 				);
 			default:
 				return [
+					<li key="credits" style={{ margin: '0 15px' }}>
+						Credits: {user.credits}
+					</li>,
 					<li key="payment">
 						<Payment />
 					</li>,
