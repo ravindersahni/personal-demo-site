@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../redux/user/user.actions';
-import Header from './header/Header.component';
-import Landing from './landing/Landing.component';
+import Header from './header/header.component';
+import Landing from './landing/landing.component';
+import GlobalStyle from './app.styles';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
@@ -17,12 +18,15 @@ const App = ({ fetchUser }) => {
 	);
 
 	return (
-		<div className="container">
+		<React.Fragment>
+			<GlobalStyle />
 			<Header />
-			<Route exact path="/" component={Landing} />
-			<Route exact path="/surveys" component={Dashboard} />
-			<Route path="/surveys/new" component={SurveyNew} />
-		</div>
+			<main>
+				<Route exact path="/" component={Landing} />
+				<Route exact path="/surveys" component={Dashboard} />
+				<Route path="/surveys/new" component={SurveyNew} />
+			</main>
+		</React.Fragment>
 	);
 };
 

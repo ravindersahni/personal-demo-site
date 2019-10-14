@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Payment from '../payment/Payment.component';
+import Payment from '../payment/payment.component';
+import { NavContainer, LogoContainer, HeaderContainer } from './header.styles';
 
 const Header = ({ user }) => {
-	const appName = 'One Cool App';
+	const appName = 'RS';
 
 	const getNavItems = user => {
 		switch (user) {
@@ -18,9 +18,7 @@ const Header = ({ user }) => {
 				);
 			default:
 				return [
-					<li key="credits" style={{ margin: '0 15px' }}>
-						Credits: {user.credits}
-					</li>,
+					<li key="credits">Credits: {user.credits}</li>,
 					<li key="payment">
 						<Payment />
 					</li>,
@@ -32,18 +30,12 @@ const Header = ({ user }) => {
 	};
 
 	return (
-		<header>
-			<nav>
-				<div className="nav-wrapper">
-					<Link to={user ? '/surveys' : '/'} className="brand-logo center">
-						{appName}
-					</Link>
-					<ul id="nav-mobile" className="right">
-						{getNavItems(user)}
-					</ul>
-				</div>
-			</nav>
-		</header>
+		<HeaderContainer>
+			<LogoContainer to={user ? '/surveys' : '/'}>{appName}</LogoContainer>
+			<NavContainer>
+				<ul>{getNavItems(user)}</ul>
+			</NavContainer>
+		</HeaderContainer>
 	);
 };
 
