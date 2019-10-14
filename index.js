@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
@@ -14,6 +15,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app
+	.use(express.json())
 	.use(
 		cookieSession({
 			maxAge: 30 * 24 * 60 * 60,
@@ -24,4 +26,18 @@ app
 	.use(passport.session())
 	.use('/auth', require('./routes/auth.router'))
 	.use('/api', require('./routes/api.router'))
-	.listen(process.env.PORT);
+	.use('/billing', require('./routes/billing.router'))
+	.use((err, req, res, next) => {
+		console.error(err.stack);
+		res.status(err.statusCode || 500).send(err.message);
+	});
+
+if (process.env.NODE_ENV === 'production') {
+	const path = require('path');
+	app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+	app.get('*', (req, res) =>
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+	);
+}
+app.listen(process.env.PORT);
