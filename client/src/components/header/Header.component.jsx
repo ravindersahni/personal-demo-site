@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Header = ({ user }) => {
 	const appName = 'One Cool App';
@@ -19,9 +20,9 @@ const Header = ({ user }) => {
 		<header>
 			<nav>
 				<div className="nav-wrapper">
-					<a href="/" className="brand-logo center">
+					<Link to={user ? '/surveys' : '/'} className="brand-logo center">
 						{appName}
-					</a>
+					</Link>
 					<ul id="nav-mobile" className="right">
 						<li>{getContent(user)}</li>
 					</ul>

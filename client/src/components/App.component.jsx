@@ -3,10 +3,10 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../redux/user/user.actions';
 import Header from './header/Header.component';
+import Landing from './landing/Landing.component';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const SurveyNew = () => <h2>SurveyNew</h2>;
-const Landing = () => <h2>Landing</h2>;
 
 const App = ({ fetchUser }) => {
 	useEffect(
