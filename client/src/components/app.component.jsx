@@ -26,7 +26,6 @@ const App = ({ fetchUser }) => {
 					<Route exact path="/" component={Landing} />
 					<Route exact path="/surveys" component={Dashboard} />
 					<Route path="/surveys/new" component={Survey} />
-					<Route component={PageNotFound} />
 				</Switch>
 			</main>
 		</React.Fragment>
