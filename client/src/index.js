@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import App from './components/app.component';
-// import * as ServiceWorker from './serviceWorker';
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -14,5 +13,3 @@ ReactDOM.render(
 	</Provider>,
 	document.querySelector('#root')
 );
-
-// ServiceWorker.register();
