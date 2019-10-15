@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as Enso } from '../../assets/enso.svg';
+import { ReactComponent as Enso } from '../../assets/images/enso.svg';
 
 const Dashboard = () => {
 	return (
