@@ -7,6 +7,8 @@ export const HeaderContainer = styled.header`
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 25px;
+	color: #181818;
+	background-color: #dedede;
 
 	@media screen and (max-width: 800px) {
 		height: 60px;
@@ -38,7 +40,10 @@ export const NavContainer = styled.nav`
 		margin: 0;
 		padding-left: 0;
 		li {
-			padding: 1rem;
+			a,
+			button {
+				padding: 1rem;
+			}
 		}
 	}
 
