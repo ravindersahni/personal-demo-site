@@ -9,8 +9,7 @@ router.get(
 	'/google',
 	passport.authenticate('google', {
 		scope: [ 'profile', 'email' ]
-	}),
-	authController.logInWithGoogle
+	})
 );
 
 router.get(
