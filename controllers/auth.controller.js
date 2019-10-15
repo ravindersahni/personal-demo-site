@@ -1,3 +1,9 @@
+exports.logInWithGoogle = () => {};
+
+exports.getGoogleCallback = (req, res) => {
+	res.redirect('/surveys');
+};
+
 exports.performLogout = (req, res) => {
 	req.logout();
 	res.redirect('/');

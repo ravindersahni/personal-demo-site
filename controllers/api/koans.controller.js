@@ -1,4 +1,4 @@
-const KoanModel = require('../models/koan.model');
+const KoanModel = require('../../models/koan.model');
 
 exports.createKoan = async (req, res, next) => {
 	try {

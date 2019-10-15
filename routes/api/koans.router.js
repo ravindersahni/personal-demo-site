@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const koansController = require('../controllers/koans.controller');
+const koansController = require('../../controllers/api/koans.controller');
 
 router.post('/load', koansController.loadKoans);
 router.post('/', koansController.createKoan);

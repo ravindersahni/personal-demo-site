@@ -14,8 +14,6 @@ const path = require('path');
 const mongodb = require('./mongodb/mongodb.connect');
 const authRouter = require('./routes/auth.router');
 const apiRouter = require('./routes/api.router');
-const billingRouter = require('./routes/billing.router');
-const koansRouter = require('./routes/koans.router');
 const errorMiddleware = require('./middleware/error');
 
 mongodb.connect();
@@ -32,8 +30,6 @@ app.use(passport.session());
 
 app.use('/auth', authRouter);
 app.use('/api', apiRouter);
-app.use('/billing', billingRouter);
-app.use('/koans', koansRouter);
 
 app.get('/serviceWorker.js', (req, res) => {
 	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));

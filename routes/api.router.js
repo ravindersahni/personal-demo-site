@@ -1,7 +1,8 @@
-const apiRouter = require('express').Router();
-const apiController = require('../controllers/api.controller');
+const router = require('express').Router();
+const billingRouter = require('./api/billing.router');
+const koansRouter = require('./api/koans.router');
 
-apiRouter.get('/logout', apiController.performLogout);
-apiRouter.get('/current-user', apiController.getCurrentUser);
+router.use('/billing', billingRouter);
+router.use('/koans', koansRouter);
 
-module.exports = apiRouter;
+module.exports = router;
