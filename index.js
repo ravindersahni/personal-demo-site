@@ -3,6 +3,7 @@ const compression = require('compression');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const enforce = require('express-sslify');
 
 const app = express();
 
@@ -17,7 +18,6 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app
-	.use(compression())
 	.use(express.json())
 	.use(
 		cookieSession({
@@ -38,7 +38,8 @@ app
 if (process.env.NODE_ENV === 'production') {
 	const path = require('path');
 	app.use(express.static(path.join(__dirname, 'client', 'build')));
-
+	app.use(compression());
+	app.use(enforce.HTTPS({ trustProtoHeader: true }));
 	app.get('*', (req, res) =>
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 	);
