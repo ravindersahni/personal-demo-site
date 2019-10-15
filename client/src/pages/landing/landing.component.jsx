@@ -3,9 +3,9 @@ import React from 'react';
 const Landing = () => {
 	let appName = 'One Cool App';
 	return (
-		<main style={{ textAlign: 'center' }}>
+		<article>
 			<h1>{appName}</h1>
-		</main>
+		</article>
 	);
 };
 

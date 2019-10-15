@@ -18,9 +18,8 @@ const Header = ({ user }) => {
 				);
 			default:
 				return [
-					<li key="credits">Credits: {user.credits}</li>,
 					<li key="payment">
-						<Payment />
+						<Payment>Credits: {user.credits}</Payment>
 					</li>,
 					<li key="logout">
 						<a href="/api/logout">Log Out</a>

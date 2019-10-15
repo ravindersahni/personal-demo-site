@@ -4,7 +4,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import CustomButton from '../custom-button/custom-button.styles';
 import { processUserPayment } from '../../redux/user/user.actions';
 
-const Payment = ({ processUserPayment }) => {
+const Payment = ({ processUserPayment, children }) => {
 	return (
 		<StripeCheckout
 			name="One Cool App"
@@ -14,7 +14,7 @@ const Payment = ({ processUserPayment }) => {
 			stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
 		>
 			<CustomButton type="button" className="">
-				Add Credits
+				{children}
 			</CustomButton>
 		</StripeCheckout>
 	);

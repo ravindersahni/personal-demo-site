@@ -3,11 +3,10 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUser } from '../redux/user/user.actions';
 import Header from './header/header.component';
-import Landing from './landing/landing.component';
+import Landing from '../pages/landing/landing.component';
+import Dashboard from '../pages/dashboard/dashboard.component';
+import Survey from '../pages/survey/survey.component';
 import GlobalStyle from './app.styles';
-
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
 
 const App = ({ fetchUser }) => {
 	useEffect(
@@ -24,7 +23,7 @@ const App = ({ fetchUser }) => {
 			<main>
 				<Route exact path="/" component={Landing} />
 				<Route exact path="/surveys" component={Dashboard} />
-				<Route path="/surveys/new" component={SurveyNew} />
+				<Route path="/surveys/new" component={Survey} />
 			</main>
 		</React.Fragment>
 	);
