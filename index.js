@@ -1,8 +1,10 @@
 const express = require('express');
-const app = express();
+const compression = require('compression');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+
+const app = express();
 
 const env = process.env.NODE_ENV || 'development';
 if (env === 'development') {
@@ -15,6 +17,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app
+	.use(compression())
 	.use(express.json())
 	.use(
 		cookieSession({
