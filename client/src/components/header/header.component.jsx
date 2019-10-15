@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Payment from '../payment/payment.component';
 import { NavContainer, LogoContainer, HeaderContainer } from './header.styles';
+import GithubLogoLink from '../github-logo-link/github-logo-link.component';
 
 const Header = ({ user }) => {
 	const appName = 'RS';
@@ -11,13 +12,19 @@ const Header = ({ user }) => {
 			case null:
 				return;
 			case false:
-				return (
+				return [
+					<li key="github">
+						<GithubLogoLink />
+					</li>,
 					<li key="login">
 						<a href="/auth/google">Log In with Google</a>
 					</li>
-				);
+				];
 			default:
 				return [
+					<li key="github">
+						<GithubLogoLink />
+					</li>,
 					<li key="payment">
 						<Payment>Credits: {user.credits}</Payment>
 					</li>,
