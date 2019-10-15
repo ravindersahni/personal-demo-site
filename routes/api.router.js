@@ -1,8 +1,7 @@
 const apiRouter = require('express').Router();
+const apiController = require('../controllers/api.controller');
 
-module.exports = apiRouter
-	.get('/logout', (req, res) => {
-		req.logout();
-		res.redirect('/');
-	})
-	.get('/current-user', (req, res) => res.send(req.user));
+apiRouter.get('/logout', apiController.performLogout);
+apiRouter.get('/current-user', apiController.getCurrentUser);
+
+module.exports = apiRouter;

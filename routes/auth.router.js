@@ -1,7 +1,7 @@
 const authRouter = require('express').Router();
 const passport = require('passport');
 
-require('../models/User');
+require('../models/user.model');
 require('../services/passport.service');
 
 module.exports = authRouter
