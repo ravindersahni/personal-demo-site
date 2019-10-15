@@ -22,7 +22,7 @@ const Header = ({ user }) => {
 						<Payment>Credits: {user.credits}</Payment>
 					</li>,
 					<li key="logout">
-						<a href="/api/logout">Log Out</a>
+						<a href="/auth/logout">Log Out</a>
 					</li>
 				];
 		}
