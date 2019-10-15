@@ -1,43 +1,42 @@
 const express = require('express');
+const app = express();
 const compression = require('compression');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 const enforce = require('express-sslify');
 const path = require('path');
-
-const app = express();
+const mongodb = require('./mongodb/mongodb.connect');
+const authRouter = require('./routes/auth.router');
+const apiRouter = require('./routes/api.router');
+const billingRouter = require('./routes/billing.router');
+const errorMiddleware = require('./middleware/error');
 
 const env = process.env.NODE_ENV || 'development';
 if (env === 'development') {
 	require('dotenv').config();
 }
 
-mongoose.connect(process.env.MONGO_URI, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
+mongodb.connect();
+
+app.use(express.json());
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60,
+		keys: [ process.env.COOKIE_KEY ]
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/auth', authRouter);
+app.use('/api', apiRouter);
+app.use('/billing', billingRouter);
+app.get('/serviceWorker.js', (req, res) => {
+	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
 });
 
-app
-	.use(express.json())
-	.use(
-		cookieSession({
-			maxAge: 30 * 24 * 60 * 60,
-			keys: [ process.env.COOKIE_KEY ]
-		})
-	)
-	.use(passport.initialize())
-	.use(passport.session())
-	.use('/auth', require('./routes/auth.router'))
-	.use('/api', require('./routes/api.router'))
-	.use('/billing', require('./routes/billing.router'))
-	.get('/serviceWorker.js', (req, res) => {
-		res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
-	})
-	.use((err, req, res, next) => {
-		console.error(err.stack);
-		res.status(err.statusCode || 500).send(err.message);
-	});
+app.use(errorMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(enforce.HTTPS({ trustProtoHeader: true }));
