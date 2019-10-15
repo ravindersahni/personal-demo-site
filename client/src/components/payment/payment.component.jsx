@@ -7,8 +7,8 @@ import { processUserPayment } from '../../redux/user/user.actions';
 const Payment = ({ processUserPayment, children }) => {
 	return (
 		<StripeCheckout
-			name="One Cool App"
-			description="Spend your money while you can!"
+			name="Use these demo values:"
+			description="4242 4242 4242 4242, 01/22, 123"
 			amount={500}
 			token={processUserPayment}
 			stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
