@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER } from './user.types';
+import { FETCH_USER, LOG_IN_USER, LOG_OUT_USER } from './user.types';
 
 export const fetchUser = () => async dispatch => {
 	const res = await axios.get('/auth/current-user');
@@ -15,4 +15,18 @@ export const processUserPayment = token => async dispatch => {
 		type: FETCH_USER,
 		payload: res.data
 	});
+};
+
+export const logInUser = () => {
+	window.open('/auth/google', '_self');
+	return {
+		type: LOG_IN_USER
+	};
+};
+
+export const logOutUser = () => {
+	window.open('/auth/logout', '_self');
+	return {
+		type: LOG_OUT_USER
+	};
 };

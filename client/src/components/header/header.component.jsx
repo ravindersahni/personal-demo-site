@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { logInUser, logOutUser } from '../../redux/user/user.actions';
 import Payment from '../payment/payment.component';
 import { NavContainer, LogoContainer, HeaderContainer } from './header.styles';
+import CustomButton from '../custom-button/custom-button.styles';
 import GithubLogoLink from '../github-logo-link/github-logo-link.component';
 
-const Header = ({ user }) => {
+const Header = ({ user, logInUser, logOutUser }) => {
 	const appName = 'RS';
 
-	const getNavItems = user => {
+	const getNavItems = (user, logIn, logOut) => {
 		switch (user) {
 			case null:
 				return;
@@ -17,7 +19,9 @@ const Header = ({ user }) => {
 						<GithubLogoLink />
 					</li>,
 					<li key="login">
-						<a href="/auth/google">Log In with Google</a>
+						<CustomButton type="button" onClick={logIn}>
+							Log In with Google
+						</CustomButton>
 					</li>
 				];
 			default:
@@ -29,7 +33,9 @@ const Header = ({ user }) => {
 						<Payment>Credits: {user.credits}</Payment>
 					</li>,
 					<li key="logout">
-						<a href="/auth/logout">Log Out</a>
+						<CustomButton type="button" onClick={logOut}>
+							Log Out
+						</CustomButton>
 					</li>
 				];
 		}
@@ -39,7 +45,7 @@ const Header = ({ user }) => {
 		<HeaderContainer>
 			<LogoContainer to={user ? '/surveys' : '/'}>{appName}</LogoContainer>
 			<NavContainer>
-				<ul>{getNavItems(user)}</ul>
+				<ul>{getNavItems(user, logInUser, logOutUser)}</ul>
 			</NavContainer>
 		</HeaderContainer>
 	);
@@ -47,4 +53,4 @@ const Header = ({ user }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { logInUser, logOutUser })(Header);
