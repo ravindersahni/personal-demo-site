@@ -3,25 +3,22 @@ import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
 	width: 100%;
+	padding: 0 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 25px;
 	color: #181818;
 	background-color: #dedede;
 
 	@media screen and (max-width: 800px) {
-		height: 60px;
-		margin-bottom: 20px;
 	}
 `;
 
 export const LogoContainer = styled(Link)`
   height: 100%;
-	padding: 1rem;
-	padding-left: 0;
 	display: flex;
 	align-items: center;
+	padding: 0.8rem;
 
   @media screen and (max-width: 800px) {
   }
@@ -38,11 +35,10 @@ export const NavContainer = styled.nav`
 		align-items: center;
 		list-style-type: none;
 		margin: 0;
-		padding-left: 0;
 		li {
 			a,
 			button {
-				padding: 1rem;
+				padding: 0.8rem;
 			}
 		}
 	}
