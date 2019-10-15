@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 const enforce = require('express-sslify');
+const path = require('path');
 
 const app = express();
 
@@ -30,13 +31,15 @@ app
 	.use('/auth', require('./routes/auth.router'))
 	.use('/api', require('./routes/api.router'))
 	.use('/billing', require('./routes/billing.router'))
+	.get('/serviceWorker.js', (req, res) => {
+		res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
+	})
 	.use((err, req, res, next) => {
 		console.error(err.stack);
 		res.status(err.statusCode || 500).send(err.message);
 	});
 
 if (process.env.NODE_ENV === 'production') {
-	const path = require('path');
 	app.use(express.static(path.join(__dirname, 'client', 'build')));
 	app.use(compression());
 	app.use(enforce.HTTPS({ trustProtoHeader: true }));
@@ -44,9 +47,5 @@ if (process.env.NODE_ENV === 'production') {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
 	);
 }
-
-app.get('/serviceWorker.js', (req, res) => {
-	res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
-});
 
 module.exports = app;
