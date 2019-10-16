@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
 		height: 100%;
 	}
 	body {
-		font-family: 'Open Sans Condensed';
+		font-family: 'Open Sans Condensed', sans-serif;
 		margin: 0;
 		padding: 0;
 		color: #dedede;
