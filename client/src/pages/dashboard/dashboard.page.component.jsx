@@ -1,6 +1,6 @@
 import React from 'react';
 import EnsoArticle from '../../components/enso-article/enso-article.component';
 
-const Dashboard = () => <EnsoArticle />;
+const DashboardPage = () => <EnsoArticle />;
 
-export default Dashboard;
+export default DashboardPage;

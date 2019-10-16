@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PageNotFound = () => (
+const NotFoundPage = () => (
 	<article
 		style={{
 			display: 'flex',
@@ -13,4 +13,4 @@ const PageNotFound = () => (
 	</article>
 );
 
-export default PageNotFound;
+export default NotFoundPage;

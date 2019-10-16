@@ -3,10 +3,11 @@ import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchUserStart } from '../redux/user/user.actions';
 import Header from './header/header.component';
-import Landing from '../pages/landing/landing.component';
-import Dashboard from '../pages/dashboard/dashboard.component';
-import Survey from '../pages/survey/survey.component';
-import PageNotFound from '../pages/page-not-found/page-not-found.component';
+import LandingPage from '../pages/landing/landing.page.component';
+import DashboardPage from '../pages/dashboard/dashboard.page.component';
+import KoansPage from '../pages/koans/koans.page.component';
+import SurveyPage from '../pages/survey/survey.page.component';
+import NotFoundPage from '../pages/not-found/not-found.page.component';
 import GlobalStyle from './app.styles';
 
 const App = ({ fetchUserStart }) => {
@@ -23,10 +24,11 @@ const App = ({ fetchUserStart }) => {
 			<Header />
 			<main>
 				<Switch>
-					<Route exact path="/" component={Landing} />
-					<Route exact path="/surveys" component={Dashboard} />
-					<Route path="/surveys/new" component={Survey} />
-					<Route component={PageNotFound} />
+					<Route exact path="/" component={LandingPage} />
+					<Route exact path="/koans" component={KoansPage} />
+					<Route exact path="/surveys" component={DashboardPage} />
+					<Route path="/surveys/new" component={SurveyPage} />
+					<Route component={NotFoundPage} />
 				</Switch>
 			</main>
 		</React.Fragment>

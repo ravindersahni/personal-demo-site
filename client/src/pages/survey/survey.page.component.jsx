@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Survey = () => {
+const SurveyPage = () => {
 	let pageName = 'Survey';
 	return (
 		<article>
@@ -9,4 +9,4 @@ const Survey = () => {
 	);
 };
 
-export default Survey;
+export default SurveyPage;
