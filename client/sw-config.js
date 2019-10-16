@@ -1,4 +1,6 @@
 module.exports = {
+	navigateFallback: 'index.html',
+	navigateFallbackWhitelist: [ /^(?!\/(auth|api)\/)/ ],
 	runtimeCaching: [
 		{
 			urlPattern: '/auth',

@@ -18,8 +18,8 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"build_sw": "react-scripts build && sw-precache-cra --config sw-config.js",
+		"build_no_sw": "react-scripts build",
+		"build": "react-scripts build && sw-precache-cra --config sw-config.js",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
