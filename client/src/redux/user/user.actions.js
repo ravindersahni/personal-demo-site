@@ -18,14 +18,14 @@ export const processUserPayment = token => async dispatch => {
 };
 
 export const logInUser = () => {
-	window.open('/auth/google', '_parent');
+	window.open('/auth/google', '_top');
 	return {
 		type: LOG_IN_USER
 	};
 };
 
 export const logOutUser = () => {
-	window.open('/auth/logout', '_parent');
+	window.open('/auth/logout', '_self');
 	return {
 		type: LOG_OUT_USER
 	};
