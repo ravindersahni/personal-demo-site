@@ -10,7 +10,7 @@ const StyledArticle = styled.article`
 `;
 
 const StyledEnso = styled(Enso)`
-	max-width: 60%;
+	max-width: 50%;
 	@media(min-width: 800px) {
 		max-width: 36%;
 	}
