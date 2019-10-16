@@ -6,7 +6,7 @@ export const KoanUL = styled.ul`
 	flex-wrap: wrap;
 	justify-content: space-around;
 	margin: 0;
-	padding: 1rem 0;
+	padding: 5rem 0;
 
 	li {
 		display: flex;
@@ -21,6 +21,7 @@ export const KoanUL = styled.ul`
 		article {
 			width: 100%;
 			border-radius: 100%;
+			padding: 0;
 			background-color: #dedede;
 			color: #232323;
 
