@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchUser } from '../redux/user/user.actions';
+import { fetchUserStart } from '../redux/user/user.actions';
 import Header from './header/header.component';
 import Landing from '../pages/landing/landing.component';
 import Dashboard from '../pages/dashboard/dashboard.component';
@@ -9,12 +9,12 @@ import Survey from '../pages/survey/survey.component';
 import PageNotFound from '../pages/page-not-found/page-not-found.component';
 import GlobalStyle from './app.styles';
 
-const App = ({ fetchUser }) => {
+const App = ({ fetchUserStart }) => {
 	useEffect(
 		() => {
-			fetchUser();
+			fetchUserStart();
 		},
-		[ fetchUser ]
+		[ fetchUserStart ]
 	);
 
 	return (
@@ -33,4 +33,4 @@ const App = ({ fetchUser }) => {
 	);
 };
 
-export default connect(null, { fetchUser })(App);
+export default connect(null, { fetchUserStart })(App);
