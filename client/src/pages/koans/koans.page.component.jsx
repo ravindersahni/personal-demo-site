@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchKoansStart } from '../../redux/koan/koan.actions';
-import KoanList from '../../components/koan-list/koan-list.component';
+import KoanPreviewList from '../../components/koan-preview-list/koan-preview-list.component';
 import EnsoArticle from '../../components/enso-article/enso-article.component';
 
 const KoansPage = ({ fetchKoansStart, koans, ...rest }) => {
@@ -13,7 +13,7 @@ const KoansPage = ({ fetchKoansStart, koans, ...rest }) => {
 	);
 	return (
 		<React.Fragment>
-			{koans && <KoanList koans={koans} />}
+			{koans && <KoanPreviewList koans={koans} />}
 			<EnsoArticle {...rest} />
 		</React.Fragment>
 	);

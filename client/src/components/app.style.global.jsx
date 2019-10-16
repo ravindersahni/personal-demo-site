@@ -24,7 +24,10 @@ const GlobalStyle = createGlobalStyle`
 		}
 		main {
 			margin-top: -60px;
-			padding-top: 60px;
+
+			article {
+				padding-top: 60px;
+			}
 		}
 	}
 	h1, h2, h3, h4, h5, h6 {

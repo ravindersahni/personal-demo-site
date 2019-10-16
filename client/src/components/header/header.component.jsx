@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logInUser, logOutUser } from '../../redux/user/user.actions';
 import Payment from '../payment/payment.component';
-import { NavContainer, LogoContainer, HeaderContainer } from './header.styles';
+import { RightNavContainer, LogoContainer, HeaderContainer } from './header.styles';
 import CustomButton from '../custom-button/custom-button.styles';
 import GithubLogoLink from '../github-logo-link/github-logo-link.component';
 
@@ -44,9 +44,10 @@ const Header = ({ user, logInUser, logOutUser }) => {
 	return (
 		<HeaderContainer>
 			<LogoContainer to={user ? '/surveys' : '/'}>{appName}</LogoContainer>
-			<NavContainer>
+			<LogoContainer to="/koans">Koans</LogoContainer>
+			<RightNavContainer>
 				<ul>{getNavItems(user, logInUser, logOutUser)}</ul>
-			</NavContainer>
+			</RightNavContainer>
 		</HeaderContainer>
 	);
 };

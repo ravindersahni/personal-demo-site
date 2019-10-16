@@ -8,7 +8,7 @@ import DashboardPage from '../pages/dashboard/dashboard.page.component';
 import KoansPage from '../pages/koans/koans.page.component';
 import SurveyPage from '../pages/survey/survey.page.component';
 import NotFoundPage from '../pages/not-found/not-found.page.component';
-import GlobalStyle from './app.styles';
+import GlobalStyle from './app.style.global';
 
 const App = ({ fetchUserStart }) => {
 	useEffect(
