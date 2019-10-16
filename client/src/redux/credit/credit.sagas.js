@@ -5,7 +5,6 @@ import * as CreditActionTypes from './credit.types';
 import * as CreditActions from './credit.actions';
 
 export function* buyCredit({ payload }) {
-	console.log('MY TOKEN', payload);
 	try {
 		const res = yield call(axios.post, 'api/billing/stripe', payload);
 		yield put(CreditActions.buyCreditSuccess(res.data));
