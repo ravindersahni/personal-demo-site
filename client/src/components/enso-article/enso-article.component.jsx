@@ -31,6 +31,14 @@ const StyledEnso = styled(Enso)`
 			transform: rotate(360deg);
 		}
 	}
+	g {
+		transition: fill 1s;
+	}
+	:hover {
+		g {
+			fill: darkred;
+		}
+	}
 `;
 
 const EnsoArticle = ({ children }) => (

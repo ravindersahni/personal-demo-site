@@ -6,7 +6,8 @@ import { fetchUserStart } from '../redux/user/user.actions';
 import Header from './header/header.component';
 import LandingPage from '../pages/landing/landing.page.component';
 import DashboardPage from '../pages/dashboard/dashboard.page.component';
-import KoansPage from '../pages/koans/koans.page.component';
+import KoansListPage from '../pages/koans-list/koans-list.page.component';
+import KoanPage from '../pages/koan/koan.page.component';
 import SurveyPage from '../pages/survey/survey.page.component';
 import NotFoundPage from '../pages/not-found/not-found.page.component';
 import GlobalStyle from './app.style.global';
@@ -31,7 +32,8 @@ const App = ({ fetchUserStart }) => {
 					className="switch-wrapper"
 				>
 					<Route exact path="/" component={LandingPage} />
-					<Route exact path="/koans" component={KoansPage} />
+					<Route exact path="/koans" component={KoansListPage} />
+					<Route path="/koans/:id" component={KoanPage} />
 					<Route exact path="/surveys" component={DashboardPage} />
 					<Route path="/surveys/new" component={SurveyPage} />
 					<Route component={NotFoundPage} />
