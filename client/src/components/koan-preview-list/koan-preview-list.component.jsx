@@ -2,9 +2,9 @@ import React from 'react';
 import KoanPreview from '../koan-preview/koan-preview.component';
 import { KoanUL } from './koan-preview-list.styles';
 
-const KoanPreviewList = ({ koans }) => (
+const KoanPreviewList = ({ koanPreviews }) => (
 	<KoanUL>
-		{koans.map(koan => (
+		{koanPreviews.map(koan => (
 			<li key={koan._id}>
 				<KoanPreview koan={koan} />
 			</li>

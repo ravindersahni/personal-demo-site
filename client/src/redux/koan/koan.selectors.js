@@ -1,8 +1,5 @@
 import { createSelector } from 'reselect';
 
-export const selectKoanContainer = state => state.koanContainer;
+export const selectKoans = state => state.koans;
 
-export const selectKoans = createSelector(
-	[ selectKoanContainer ],
-	koanContainer => koanContainer.koans
-);
+export const selectAllKoans = createSelector([ selectKoans ], koanContainer => koans.all);

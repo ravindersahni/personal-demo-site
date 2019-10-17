@@ -4,6 +4,15 @@ import axios from 'axios';
 import * as KoanActionTypes from './koan.types';
 import * as KoanActions from './koan.actions';
 
+export function* fetchKoanPreviews() {
+	try {
+		const res = yield call(axios.get, 'api/koans/previews');
+		yield put(KoanActions.fetchKoanPreviewsSuccess(res.data));
+	} catch (error) {
+		yield put(KoanActions.fetchKoanPreviewsFailure(error));
+	}
+}
+
 export function* fetchKoans() {
 	try {
 		const res = yield call(axios.get, 'api/koans');
@@ -22,6 +31,10 @@ export function* fetchKoanById({ id }) {
 	}
 }
 
+export function* onFetchKoanPreviewsStart() {
+	yield takeLatest(KoanActionTypes.FETCH_KOAN_PREVIEWS_START, fetchKoanPreviews);
+}
+
 export function* onFetchKoansStart() {
 	yield takeLatest(KoanActionTypes.FETCH_KOANS_START, fetchKoans);
 }
@@ -31,5 +44,9 @@ export function* onFetchKoanByIdStart() {
 }
 
 export function* koanSagas() {
-	yield all([ call(onFetchKoansStart), call(onFetchKoanByIdStart) ]);
+	yield all([
+		call(onFetchKoansStart),
+		call(onFetchKoanByIdStart),
+		call(onFetchKoanPreviewsStart)
+	]);
 }

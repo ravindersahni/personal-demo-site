@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchKoansStart } from '../../redux/koan/koan.actions';
+import { fetchKoanPreviewsStart } from '../../redux/koan/koan.actions';
 import KoanPreviewList from '../../components/koan-preview-list/koan-preview-list.component';
 import EnsoArticle from '../../components/enso-article/enso-article.component';
 
-const KoansListPage = ({ fetchKoansStart, koans }) => {
+const KoansListPage = ({ fetchKoanPreviewsStart, koanPreviews }) => {
 	useEffect(
 		() => {
-			fetchKoansStart();
+			fetchKoanPreviewsStart();
 		},
-		[ fetchKoansStart ]
+		[ fetchKoanPreviewsStart ]
 	);
-	return (koans && <KoanPreviewList koans={koans} />) || <EnsoArticle />;
+	return (
+		(koanPreviews && <KoanPreviewList koanPreviews={koanPreviews} />) || <EnsoArticle />
+	);
 };
 
-const mapStateToProps = ({ koanContainer: { koans } }) => ({ koans });
+const mapStateToProps = ({ koans: { previews } }) => ({ koanPreviews: previews });
 
-export default connect(mapStateToProps, { fetchKoansStart })(KoansListPage);
+export default connect(mapStateToProps, { fetchKoanPreviewsStart })(KoansListPage);

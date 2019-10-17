@@ -22,9 +22,9 @@ x fetch koan by id
 - use existing koans if applicable.
 - add favorite/unfavorite functionality
 */
-const mapStateToProps = ({ koanContainer }) => ({
-	koans: koanContainer.koans,
-	selectedKoan: koanContainer.selectedKoan
+const mapStateToProps = ({ koans }) => ({
+	koanPreviews: koans.previews,
+	selectedKoan: koans.selected
 });
 
 const mapDispatchToProps = dispatch => ({

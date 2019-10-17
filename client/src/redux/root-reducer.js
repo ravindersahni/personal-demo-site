@@ -6,5 +6,5 @@ import koanReducer from './koan/koan.reducer';
 export default combineReducers({
 	user: userReducer,
 	credit: creditReducer,
-	koanContainer: koanReducer
+	koans: koanReducer
 });
