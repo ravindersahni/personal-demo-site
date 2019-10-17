@@ -21,19 +21,6 @@ export const LogoContainer = styled(Link)`
 	display: flex;
 	align-items: center;
 	padding: 0.8rem;
-
-	ul {
-		display: flex;
-		align-items: center;
-		list-style-type: none;
-		margin: 0;
-		li {
-			a,
-			button {
-				padding: 0.8rem;
-			}
-		}
-	}
   @media screen and (max-width: 800px) {
   }
 `;
