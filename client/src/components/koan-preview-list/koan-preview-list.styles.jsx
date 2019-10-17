@@ -19,6 +19,7 @@ export const KoanUL = styled.ul`
 		justify-content: center;
 
 		article {
+			justify-content: center;
 			width: 100%;
 			border-radius: 100%;
 			padding: 0;
@@ -33,6 +34,7 @@ export const KoanUL = styled.ul`
 
 			h1 {
 				width: 100%;
+				max-width: 300px;
 				margin: 0;
 				padding: 1rem;
 				display: flex;
