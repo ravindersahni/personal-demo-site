@@ -10,6 +10,7 @@ const StyledA = styled.a`
 
 	svg {
 		height: 1.1rem;
+		padding-top: 1px;
 	}
 `;
 
