@@ -11,12 +11,7 @@ const KoansPage = ({ fetchKoansStart, koans, ...rest }) => {
 		},
 		[ fetchKoansStart ]
 	);
-	return (
-		<React.Fragment>
-			{koans && <KoanPreviewList koans={koans} />}
-			<EnsoArticle {...rest} />
-		</React.Fragment>
-	);
+	return (koans && <KoanPreviewList koans={koans} />) || <EnsoArticle />;
 };
 
 const mapStateToProps = ({ koans }) => ({ koans });

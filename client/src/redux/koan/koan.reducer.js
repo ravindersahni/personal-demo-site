@@ -4,7 +4,7 @@ import {
 	FETCH_KOANS_FAILURE
 } from './koan.types';
 
-export default (state = [], action) => {
+export default (state = null, action) => {
 	switch (action.type) {
 		case FETCH_KOANS_SUCCESS:
 			return action.payload;

@@ -11,9 +11,9 @@ export const KoanUL = styled.ul`
 	li {
 		display: flex;
 		margin: 1rem;
-		flex-basis: 100%;
-		@media (min-width: 800px) {
-			flex-basis: 20%;
+		flex-basis: 60%;
+		@media (min-width: 600px) {
+			flex-basis: 25%;
 		}
 		min-height: 12rem;
 		justify-content: center;
@@ -24,6 +24,12 @@ export const KoanUL = styled.ul`
 			padding: 0;
 			background-color: #dedede;
 			color: #232323;
+
+			::before {
+				content: '';
+				display: block;
+				padding-top: 100%;
+			}
 
 			h1 {
 				width: 100%;

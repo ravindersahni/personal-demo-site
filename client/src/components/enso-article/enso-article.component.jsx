@@ -14,12 +14,21 @@ const StyledEnso = styled(Enso)`
 	@media(min-width: 800px) {
 		max-width: 36%;
 	}
+	animation: rotate-enso 3s linear infinite;
+	@keyframes rotate-enso {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 `;
 
 const EnsoArticle = ({ children }) => (
 	<StyledArticle>
-		<StyledEnso />
 		{children}
+		<StyledEnso />
 	</StyledArticle>
 );
 
