@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 import { connect } from 'react-redux';
 import { fetchUserStart } from '../redux/user/user.actions';
 import Header from './header/header.component';
@@ -22,15 +23,18 @@ const App = ({ fetchUserStart }) => {
 		<React.Fragment>
 			<GlobalStyle />
 			<Header />
-			<main>
-				<Switch>
-					<Route exact path="/" component={LandingPage} />
-					<Route exact path="/koans" component={KoansPage} />
-					<Route exact path="/surveys" component={DashboardPage} />
-					<Route path="/surveys/new" component={SurveyPage} />
-					<Route component={NotFoundPage} />
-				</Switch>
-			</main>
+			<AnimatedSwitch
+				atEnter={{ opacity: 0 }}
+				atLeave={{ opacity: 0 }}
+				atActive={{ opacity: 1 }}
+				className="switch-wrapper"
+			>
+				<Route exact path="/" component={LandingPage} />
+				<Route exact path="/koans" component={KoansPage} />
+				<Route exact path="/surveys" component={DashboardPage} />
+				<Route path="/surveys/new" component={SurveyPage} />
+				<Route component={NotFoundPage} />
+			</AnimatedSwitch>
 		</React.Fragment>
 	);
 };

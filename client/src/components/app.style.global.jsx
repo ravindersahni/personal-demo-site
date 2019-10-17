@@ -12,21 +12,20 @@ const GlobalStyle = createGlobalStyle`
 		background-color: #232323;
 		height: 100%;
 
-		div#root, main {
+		div#root, .switch-wrapper, .switch-wrapper > div {
 			height: 100%;
 		}
-		header, main, footer {
+		.switch-wrapper {
+			position: relative;
+		}
+		.switch-wrapper > div {
+			position: absolute;
+		}
+		header, .switch-wrapper > div, footer {
 			margin: 0;
 			padding: 20px 40px;
 			@media screen and (max-width: 800px) {
 				padding: 10px;
-			}
-		}
-		main {
-			margin-top: -60px;
-
-			article {
-				padding-top: 60px;
 			}
 		}
 	}

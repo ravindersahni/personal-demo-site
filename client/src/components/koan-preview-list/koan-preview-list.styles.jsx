@@ -6,7 +6,7 @@ export const KoanUL = styled.ul`
 	flex-wrap: wrap;
 	justify-content: space-around;
 	margin: 0;
-	padding: 5rem 0;
+	padding: 0;
 
 	li {
 		display: flex;
