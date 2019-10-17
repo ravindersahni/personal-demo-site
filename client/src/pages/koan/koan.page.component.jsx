@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { fetchKoanByIdStart } from '../../redux/koan/koan.actions';
 import Koan from '../../components/koan/koan.component';
 
-const KoanPage = ({ koans, selectedKoan, fetchKoanByIdStart }) => {
+const KoanPage = ({ selectedKoan, fetchKoanByIdStart }) => {
 	const { id } = useParams();
+	const history = useHistory();
 
 	useEffect(
 		() => {
@@ -14,21 +15,26 @@ const KoanPage = ({ koans, selectedKoan, fetchKoanByIdStart }) => {
 		[ fetchKoanByIdStart, id ]
 	);
 
+	useEffect(
+		() => {
+			const isSwitchWrapper = e =>
+				e.target &&
+				e.target.parentElement &&
+				e.target.parentElement.className === 'switch-wrapper';
+
+			const navigateOnClick = e => isSwitchWrapper(e) && history.push('/koans');
+			window.addEventListener('click', navigateOnClick);
+			return () => window.removeEventListener('click', navigateOnClick);
+		},
+		[ history ]
+	);
+
 	return (selectedKoan && <Koan koan={selectedKoan} />) || null;
 };
-/*
-Need to:
-x fetch koan by id
-- use existing koans if applicable.
-- add favorite/unfavorite functionality
-*/
+
 const mapStateToProps = ({ koans }) => ({
 	koanPreviews: koans.previews,
 	selectedKoan: koans.selected
 });
 
-const mapDispatchToProps = dispatch => ({
-	fetchKoanByIdStart: id => dispatch(fetchKoanByIdStart(id))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(KoanPage);
+export default connect(mapStateToProps, { fetchKoanByIdStart })(KoanPage);
