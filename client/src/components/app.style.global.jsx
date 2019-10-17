@@ -21,12 +21,24 @@ const GlobalStyle = createGlobalStyle`
 		.switch-wrapper > div {
 			position: absolute;
 		}
-		header, .switch-wrapper > div, footer {
+		header, footer {
 			margin: 0;
 			padding: 20px 40px;
 			@media screen and (max-width: 800px) {
 				padding: 10px;
 			}
+		}
+		.switch-wrapper > div {
+			margin: 0;
+			padding: 20px 40px;
+			@media screen and (max-width: 800px) {
+				padding: 10px;
+			}
+			padding-top: 4rem;
+		}
+		header {
+			position: absolute;
+			z-index: 10;
 		}
 	}
 	h1, h2, h3, h4, h5, h6 {
