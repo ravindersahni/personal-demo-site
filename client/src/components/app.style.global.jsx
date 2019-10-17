@@ -31,10 +31,10 @@ const GlobalStyle = createGlobalStyle`
 		.switch-wrapper > div {
 			margin: 0;
 			padding: 20px 40px;
-			@media screen and (max-width: 800px) {
-				padding: 10px;
-			}
 			padding-top: 4rem;
+			@media screen and (max-width: 800px) {
+				padding: 4rem 10px 10px;
+			}
 		}
 		header {
 			position: absolute;
