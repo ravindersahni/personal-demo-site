@@ -14,15 +14,21 @@ const StyledEnso = styled(Enso)`
 	@media(min-width: 800px) {
 		max-width: 36%;
 	}
-	animation: rotate-enso 3s linear infinite;
-	@keyframes rotate-enso {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+	animation: spin-enso 3s linear infinite;
+
+	@keyframes spin-enso {
+		0% {
+			opacity: 0.5;
+			transform: rotate(0);
+		}
+		50% {
+			opacity: 0.2;
+		}
+		100% {
+			opacity: 0.4;
+			transform: rotate(360deg);
+		}
+	}
 `;
 
 const EnsoArticle = ({ children }) => (

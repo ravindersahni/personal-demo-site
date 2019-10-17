@@ -25,6 +25,13 @@ export const KoanUL = styled.ul`
 			padding: 0;
 			background-color: #dedede;
 			color: #232323;
+			transition: background-color 0.5s, color 0.5s;
+			cursor: pointer;
+
+			:hover {
+				background-color: darkred;
+				color: ghostwhite;
+			}
 
 			::before {
 				content: '';
