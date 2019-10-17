@@ -15,9 +15,6 @@ const Header = ({ user, logInUser, logOutUser }) => {
 				return;
 			case false:
 				return [
-					<li key="github">
-						<GithubLogoLink />
-					</li>,
 					<li key="login">
 						<CustomButton type="button" onClick={logIn}>
 							Log In with Google
@@ -26,9 +23,6 @@ const Header = ({ user, logInUser, logOutUser }) => {
 				];
 			default:
 				return [
-					<li key="github">
-						<GithubLogoLink />
-					</li>,
 					<li key="payment">
 						<Payment>Credits: {user.credits}</Payment>
 					</li>,
@@ -45,6 +39,7 @@ const Header = ({ user, logInUser, logOutUser }) => {
 		<HeaderContainer>
 			<LogoContainer to={user ? '/surveys' : '/'}>{appName}</LogoContainer>
 			<LogoContainer to="/koans">Koans</LogoContainer>
+			<GithubLogoLink />
 			<RightNavContainer>
 				<ul>{getNavItems(user, logInUser, logOutUser)}</ul>
 			</RightNavContainer>
