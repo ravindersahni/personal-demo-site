@@ -1,6 +1,5 @@
-# RS Demo
+# Welcome, friend!
 
-## Welcome, friend!
 You've somehow found your way to the source code for my personal demo site, and I want you to know that I'm sincerely happy to have you here. I've begun this little project because, for the past 5 years or so, I've devoted essentially every shred of my coding energy to the development of corporate properties that make it difficult or impossible to show any of my work to the general public.
 
 This chimeric application will likely forever be a work in progress, but I aim to move it steadily towards something representative of my skills as an engineer, architect, problem-solver, and general creative type.
