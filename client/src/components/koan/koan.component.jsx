@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 const KoanArticle = styled.article`
 	max-width: 30rem;
-	margin: 0 auto;
+	margin: 0 auto 1rem;
 	@media (min-width: 600px) {
-		margin: 1rem auto;
+		margin: 1rem auto 2rem;
 	}
 	padding: 1rem;
 	min-height: 95%;
