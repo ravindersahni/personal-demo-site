@@ -32,11 +32,11 @@ const StyledEnso = styled(Enso)`
 		}
 	}
 	g {
-		transition: fill 1s;
+		transition: fill 2s ease-in-out;
 	}
 	:hover {
 		g {
-			fill: darkred;
+			fill: black;
 		}
 	}
 `;

@@ -1,5 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchKoanByIdStart } from '../../redux/koan/koan.actions';
+import Koan from '../../components/koan/koan.component';
 
-const KoanPage = () => <h1>KoanPage</h1>;
+const KoanPage = ({ koans, selectedKoan, fetchKoanByIdStart }) => {
+	const { id } = useParams();
 
-export default KoanPage;
+	useEffect(
+		() => {
+			fetchKoanByIdStart(id);
+		},
+		[ fetchKoanByIdStart, id ]
+	);
+
+	return (selectedKoan && <Koan koan={selectedKoan} />) || null;
+};
+/*
+Need to:
+x fetch koan by id
+- use existing koans if applicable.
+- add favorite/unfavorite functionality
+*/
+const mapStateToProps = ({ koanContainer }) => ({
+	koans: koanContainer.koans,
+	selectedKoan: koanContainer.selectedKoan
+});
+
+const mapDispatchToProps = dispatch => ({
+	fetchKoanByIdStart: id => dispatch(fetchKoanByIdStart(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(KoanPage);

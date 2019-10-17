@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 		background-color: #232323;
 		height: 100%;
 
-		div#root, main, .switch-wrapper, .switch-wrapper > div {
+		div#root, main, .switch-wrapper {
 			height: 100%;
 		}
 		.switch-wrapper {
@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
 		}
 		.switch-wrapper > div {
 			position: absolute;
+			height: 100%;
+			width: 100%;
 		}
 		header, footer {
 			margin: 0;
@@ -30,10 +32,10 @@ const GlobalStyle = createGlobalStyle`
 		}
 		.switch-wrapper > div {
 			margin: 0;
-			padding: 20px 40px;
-			padding-top: 4rem;
-			@media screen and (max-width: 800px) {
-				padding: 4rem 10px 10px;
+			padding: 4rem 1rem 1rem;
+			@media screen and (min-width: 800px) {
+				padding: 20px 40px;
+				padding-top: 4rem;
 			}
 		}
 		header {

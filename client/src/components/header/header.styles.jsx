@@ -5,10 +5,12 @@ export const HeaderContainer = styled.header`
 	width: 100%;
 	padding: 0 1rem;
 	display: flex;
+	position: fixed;
 	justify-content: space-between;
 	align-items: center;
 	color: #181818;
 	background-color: #dedede;
+	box-shadow: 1px 1px 3px #232323;
 
 	@media screen and (max-width: 800px) {
 	}

@@ -4,7 +4,7 @@ import { fetchKoansStart } from '../../redux/koan/koan.actions';
 import KoanPreviewList from '../../components/koan-preview-list/koan-preview-list.component';
 import EnsoArticle from '../../components/enso-article/enso-article.component';
 
-const KoansListPage = ({ fetchKoansStart, koans, ...rest }) => {
+const KoansListPage = ({ fetchKoansStart, koans }) => {
 	useEffect(
 		() => {
 			fetchKoansStart();
@@ -14,6 +14,6 @@ const KoansListPage = ({ fetchKoansStart, koans, ...rest }) => {
 	return (koans && <KoanPreviewList koans={koans} />) || <EnsoArticle />;
 };
 
-const mapStateToProps = ({ koans }) => ({ koans });
+const mapStateToProps = ({ koanContainer: { koans } }) => ({ koans });
 
 export default connect(mapStateToProps, { fetchKoansStart })(KoansListPage);
