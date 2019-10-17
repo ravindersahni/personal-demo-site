@@ -23,18 +23,20 @@ const App = ({ fetchUserStart }) => {
 		<React.Fragment>
 			<GlobalStyle />
 			<Header />
-			<AnimatedSwitch
-				atEnter={{ opacity: 0 }}
-				atLeave={{ opacity: 0 }}
-				atActive={{ opacity: 1 }}
-				className="switch-wrapper"
-			>
-				<Route exact path="/" component={LandingPage} />
-				<Route exact path="/koans" component={KoansPage} />
-				<Route exact path="/surveys" component={DashboardPage} />
-				<Route path="/surveys/new" component={SurveyPage} />
-				<Route component={NotFoundPage} />
-			</AnimatedSwitch>
+			<main>
+				<AnimatedSwitch
+					atEnter={{ opacity: 0 }}
+					atLeave={{ opacity: 0 }}
+					atActive={{ opacity: 1 }}
+					className="switch-wrapper"
+				>
+					<Route exact path="/" component={LandingPage} />
+					<Route exact path="/koans" component={KoansPage} />
+					<Route exact path="/surveys" component={DashboardPage} />
+					<Route path="/surveys/new" component={SurveyPage} />
+					<Route component={NotFoundPage} />
+				</AnimatedSwitch>
+			</main>
 		</React.Fragment>
 	);
 };

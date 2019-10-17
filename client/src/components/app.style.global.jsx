@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 		background-color: #232323;
 		height: 100%;
 
-		div#root, .switch-wrapper, .switch-wrapper > div {
+		div#root, main, .switch-wrapper, .switch-wrapper > div {
 			height: 100%;
 		}
 		.switch-wrapper {
