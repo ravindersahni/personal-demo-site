@@ -24,6 +24,16 @@ exports.loadKoans = async (req, res, next) => {
 	}
 };
 
+exports.getKoanPreviews = async (req, res, next) => {
+	try {
+		const koans = await KoanModel.find({}, [ 'title', '_id' ]);
+		res.status(200).json(koans);
+	} catch (error) {
+		error.statusCode = 500;
+		next(error);
+	}
+};
+
 exports.getKoans = async (req, res, next) => {
 	try {
 		const koans = await KoanModel.find({});
