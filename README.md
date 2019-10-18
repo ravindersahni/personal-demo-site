@@ -9,6 +9,8 @@ This chimeric application will likely forever be a work in progress, but I aim t
 * Add About Page
 * Add locks to Koan Previews
 * Add favoriting ability to unlocked Koans
+* Add ErrorBoundary
+* Add Suspense
 * Add Weather Page with CSS animation representations of weather
 * Use GraphQL for Koans API
 * Add Snake Game with ability to earn credits
