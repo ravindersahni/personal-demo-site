@@ -8,9 +8,12 @@ This chimeric application will likely forever be a work in progress, but I aim t
 * Add content to README 'Welcome!' section
 * Add About Page
 * Add locks to Koan Previews
+* Add credits for icons
+* Add license/use info for Gateless Gate koans
 * Add favoriting ability to unlocked Koans
 * Add ErrorBoundary
 * Add Suspense
+* Replace janky route transition animation
 * Add Weather Page with CSS animation representations of weather
 * Use GraphQL for Koans API
 * Add Snake Game with ability to earn credits
