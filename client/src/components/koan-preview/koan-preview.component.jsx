@@ -63,7 +63,7 @@ const LockedHeader = ({ children }) => (
 );
 
 const LockedKoanPreview = ({ koan }) => (
-	<FlexLink to={`/koans/${koan._id}`}>
+	<FlexLink to={`/koans/${koan._id}`} aria-label={`Link to ${koan.title}`}>
 		<StyledArticle locked>
 			<LockedHeader>{koan.title}</LockedHeader>
 		</StyledArticle>
@@ -71,7 +71,7 @@ const LockedKoanPreview = ({ koan }) => (
 );
 
 const OpenKoanPreview = ({ koan }) => (
-	<FlexLink to={`/koans/${koan._id}`}>
+	<FlexLink to={`/koans/${koan._id}`} aria-label={`Link to ${koan.title}`}>
 		<StyledArticle>
 			<StyledH1>{koan.title}</StyledH1>
 		</StyledArticle>
