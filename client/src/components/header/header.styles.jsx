@@ -62,12 +62,16 @@ export const RightNavContainer = styled(NavContainer)`
 	min-width: 30%;
 	justify-content: space-between;
 	ul {
+		padding: 0;
+		flex-grow: 1;
+		margin: 0 -0.8rem;
+		justify-content: space-around;
+		width: 100%;
+
 		li {
 			display: flex;
 			justify-content: space-between;
 		}
-		justify-content: space-between;
-		width: 100%;
 		@media (min-width: 520px) {
 			justify-content: flex-end;
 			margin: 0;
