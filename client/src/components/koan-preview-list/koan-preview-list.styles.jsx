@@ -31,7 +31,7 @@ export const KoanUL = styled.ul`
 			:hover {
 				background-color: darkred;
 				color: ghostwhite;
-				font-size: 1.2rem;
+				font-size: 1.15rem;
 				letter-spacing: -1px;
 			}
 
