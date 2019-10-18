@@ -39,6 +39,18 @@ const App = ({ fetchUserStart }) => {
 					<Route component={NotFoundPage} />
 				</AnimatedSwitch>
 			</main>
+			{/* <footer>
+				<div style={{ color: '#232323' }}>
+					Lock icon made by&nbsp;
+					<a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">
+						Those Icons&nbsp;
+					</a>
+					from&nbsp;
+					<a href="https://www.flaticon.com/" title="Flaticon">
+						www.flaticon.com
+					</a>
+				</div>
+			</footer> */}
 		</React.Fragment>
 	);
 };
