@@ -13,7 +13,6 @@ export const HeaderContainer = styled.header`
 `;
 
 const NavContainer = styled.nav`
-	width: 50%;
 	height: 100%;
 	display: flex;
 	justify-content: flex-start;
@@ -27,7 +26,6 @@ const NavContainer = styled.nav`
 		li {
 			a,
 			button {
-				display: flex;
 				padding: 0.8rem;
 				color: #181818;
 			}
@@ -37,11 +35,23 @@ const NavContainer = styled.nav`
 
 export const LeftNavContainer = styled(NavContainer)`
 	justify-content: flex-start;
+	flex-grow: 1;
 	ul {
 		padding: 0;
+		flex-grow: 1;
+		li {
+			flex-grow: 1;
+		}
 	}
 `;
 
 export const RightNavContainer = styled(NavContainer)`
+	min-width: 30%;
 	justify-content: flex-end;
+	ul {
+		li {
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
 `;

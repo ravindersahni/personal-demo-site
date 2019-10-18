@@ -4,13 +4,13 @@ import { ReactComponent as GithubLogo } from '../../assets/images/github.svg';
 
 const StyledA = styled.a`
 	height: 100%;
-	display: flex;
-	align-items: center;
+	text-align: center;
 	padding: 0.8rem;
 
 	svg {
 		height: 1.1rem;
-		padding-top: 1px;
+		vertical-align: middle;
+		margin-bottom: 2px;
 	}
 `;
 
