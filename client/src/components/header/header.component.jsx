@@ -50,6 +50,9 @@ const Header = ({ user, logInUser, logOutUser }) => {
 						<Link to="/koans">Koans</Link>
 					</li>
 					<li>
+						<Link to="/">Weather</Link>
+					</li>
+					<li>
 						<Link to="/">Games</Link>
 					</li>
 					<li>
