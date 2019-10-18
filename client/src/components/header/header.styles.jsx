@@ -44,7 +44,4 @@ export const LeftNavContainer = styled(NavContainer)`
 
 export const RightNavContainer = styled(NavContainer)`
 	justify-content: flex-end;
-	@media screen and (max-width: 800px) {
-		width: 100%;
-	}
 `;
