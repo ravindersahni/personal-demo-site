@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 import { fetchUserStart } from '../redux/user/user.actions';
 import Header from './header/header.component';
 import LandingPage from '../pages/landing/landing.page.component';
+import AboutPage from '../pages/about/about.page.component';
 import DashboardPage from '../pages/dashboard/dashboard.page.component';
 import KoansListPage from '../pages/koans-list/koans-list.page.component';
 import KoanPage from '../pages/koan/koan.page.component';
 import SurveyPage from '../pages/survey/survey.page.component';
 import NotFoundPage from '../pages/not-found/not-found.page.component';
+import ErrorBoundary from '../components/error-boundary/error-boundary.component';
 import GlobalStyle from './app.style.global';
 
 const App = ({ fetchUserStart }) => {
@@ -31,12 +33,15 @@ const App = ({ fetchUserStart }) => {
 					atActive={{ opacity: 1 }}
 					className="switch-wrapper"
 				>
-					<Route exact path="/" component={LandingPage} />
-					<Route exact path="/koans" component={KoansListPage} />
-					<Route path="/koans/:id" component={KoanPage} />
-					<Route exact path="/surveys" component={DashboardPage} />
-					<Route path="/surveys/new" component={SurveyPage} />
-					<Route component={NotFoundPage} />
+					<ErrorBoundary>
+						<Route exact path="/" component={LandingPage} />
+						<Route exact path="/about" component={AboutPage} />
+						<Route exact path="/koans" component={KoansListPage} />
+						<Route path="/koans/:id" component={KoanPage} />
+						<Route exact path="/surveys" component={DashboardPage} />
+						<Route path="/surveys/new" component={SurveyPage} />
+						<Route component={NotFoundPage} />
+					</ErrorBoundary>
 				</AnimatedSwitch>
 			</main>
 			{/* <footer>

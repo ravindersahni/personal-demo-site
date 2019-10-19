@@ -44,7 +44,7 @@ const Header = ({ user, logInUser, logOutUser }) => {
 						<Link to={user ? '/surveys' : '/'}>{appName}</Link>
 					</li>
 					<li>
-						<Link to="/">About</Link>
+						<Link to="/about">About</Link>
 					</li>
 					<li>
 						<Link to="/koans">Koans</Link>
