@@ -9,6 +9,8 @@ import AboutPage from '../pages/about/about.page.component';
 import DashboardPage from '../pages/dashboard/dashboard.page.component';
 import KoansListPage from '../pages/koans-list/koans-list.page.component';
 import KoanPage from '../pages/koan/koan.page.component';
+import WeatherPage from '../pages/weather/weather.page.component';
+import GamesPage from '../pages/games/games.page.component';
 import SurveyPage from '../pages/survey/survey.page.component';
 import NotFoundPage from '../pages/not-found/not-found.page.component';
 import ErrorBoundary from '../components/error-boundary/error-boundary.component';
@@ -38,6 +40,8 @@ const App = ({ fetchUserStart }) => {
 						<Route exact path="/about" component={AboutPage} />
 						<Route exact path="/koans" component={KoansListPage} />
 						<Route path="/koans/:id" component={KoanPage} />
+						<Route exact path="/weather" component={WeatherPage} />
+						<Route exact path="/games" component={GamesPage} />
 						<Route exact path="/surveys" component={DashboardPage} />
 						<Route path="/surveys/new" component={SurveyPage} />
 						<Route component={NotFoundPage} />
