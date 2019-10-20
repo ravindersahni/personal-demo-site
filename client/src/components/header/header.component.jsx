@@ -44,9 +44,6 @@ const Header = ({ user, logInUser, logOutUser }) => {
 						<Link to={user ? '/surveys' : '/'}>{appName}</Link>
 					</li>
 					<li>
-						<Link to="/about">About</Link>
-					</li>
-					<li>
 						<Link to="/koans">Koans</Link>
 					</li>
 					<li>
@@ -57,6 +54,9 @@ const Header = ({ user, logInUser, logOutUser }) => {
 					</li>
 					<li>
 						<GithubLogoLink />
+					</li>
+					<li>
+						<Link to="/about">Throw</Link>
 					</li>
 				</ul>
 			</LeftNavContainer>
