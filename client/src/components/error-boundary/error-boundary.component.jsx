@@ -1,5 +1,5 @@
 import React from 'react';
-import { ErrorArticle, ErrorText } from './error-boundary.styles';
+import { ErrorArticle, ErrorHeading, ErrorP } from './error-boundary.styles';
 
 class ErrorBoundary extends React.Component {
 	constructor() {
@@ -18,7 +18,8 @@ class ErrorBoundary extends React.Component {
 	render() {
 		return this.state.hasErrored ? (
 			<ErrorArticle>
-				<ErrorText>Something has gone terribly awry</ErrorText>
+				<ErrorHeading>Something has gone terribly awry</ErrorHeading>
+				<ErrorP>Please try another tab.</ErrorP>
 			</ErrorArticle>
 		) : (
 			this.props.children
