@@ -2,19 +2,19 @@ import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import { connect } from 'react-redux';
-import { fetchUserStart } from '../redux/user/user.actions';
-import Header from './header/header.component';
-import LandingPage from '../pages/landing/landing.page.component';
-import AboutPage from '../pages/about/about.page.component';
-import DashboardPage from '../pages/dashboard/dashboard.page.component';
-import KoansListPage from '../pages/koans-list/koans-list.page.component';
-import KoanPage from '../pages/koan/koan.page.component';
-import WeatherPage from '../pages/weather/weather.page.component';
-import GamesPage from '../pages/games/games.page.component';
-import SurveyPage from '../pages/survey/survey.page.component';
-import NotFoundPage from '../pages/not-found/not-found.page.component';
-import ErrorBoundary from '../components/error-boundary/error-boundary.component';
-import GlobalStyle from './app.style.global';
+import { fetchUserStart } from './redux/user/user.actions';
+import Header from './components/header/header.component';
+import LandingPage from './pages/landing/landing.page.component';
+import AboutPage from './pages/about/about.page.component';
+import DashboardPage from './pages/dashboard/dashboard.page.component';
+import KoansListPage from './pages/koans-list/koans-list.page.component';
+import KoanPage from './pages/koan/koan.page.component';
+import WeatherPage from './pages/weather/weather.page.component';
+import GamesPage from './pages/games/games.page.component';
+import SurveyPage from './pages/survey/survey.page.component';
+import NotFoundPage from './pages/not-found/not-found.page.component';
+import ErrorBoundary from './components/error-boundary/error-boundary.component';
+import GlobalStyle from './app.style';
 
 const App = ({ fetchUserStart }) => {
 	useEffect(
