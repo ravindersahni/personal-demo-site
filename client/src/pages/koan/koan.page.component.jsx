@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { fetchKoanByIdStart } from '../../redux/koan/koan.actions';
 import Koan from '../../components/koan/koan.component';
+import WithErrorBoundary from '../../components/with-error-boundary/with-error-boundary.component';
 
 const KoanPage = ({ selectedKoan, fetchKoanByIdStart }) => {
 	const { id } = useParams();
@@ -37,4 +38,6 @@ const mapStateToProps = ({ koans }) => ({
 	selectedKoan: koans.selected
 });
 
-export default connect(mapStateToProps, { fetchKoanByIdStart })(KoanPage);
+export default connect(mapStateToProps, { fetchKoanByIdStart })(
+	WithErrorBoundary(KoanPage)
+);

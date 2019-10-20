@@ -28,16 +28,16 @@ const App = ({ fetchUserStart }) => {
 		<React.Fragment>
 			<GlobalStyle />
 			<Header />
-			<main>
-				<AnimatedSwitch
-					atEnter={{ opacity: 0 }}
-					atLeave={{ opacity: 0 }}
-					atActive={{ opacity: 1 }}
-					className="switch-wrapper"
-				>
-					<ErrorBoundary>
-						<Route exact path="/" component={LandingPage} />
+			<ErrorBoundary>
+				<main>
+					<AnimatedSwitch
+						atEnter={{ opacity: 0 }}
+						atLeave={{ opacity: 0 }}
+						atActive={{ opacity: 1 }}
+						className="switch-wrapper"
+					>
 						<Route exact path="/about" component={AboutPage} />
+						<Route exact path="/" component={LandingPage} />
 						<Route exact path="/koans" component={KoansListPage} />
 						<Route path="/koans/:id" component={KoanPage} />
 						<Route exact path="/weather" component={WeatherPage} />
@@ -45,14 +45,23 @@ const App = ({ fetchUserStart }) => {
 						<Route exact path="/surveys" component={DashboardPage} />
 						<Route path="/surveys/new" component={SurveyPage} />
 						<Route component={NotFoundPage} />
-					</ErrorBoundary>
-				</AnimatedSwitch>
-			</main>
+					</AnimatedSwitch>
+				</main>
+			</ErrorBoundary>
 			{/* <footer>
 				<div style={{ color: '#232323' }}>
 					Lock icon made by&nbsp;
 					<a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">
 						Those Icons&nbsp;
+					</a>
+					from&nbsp;
+					<a href="https://www.flaticon.com/" title="Flaticon">
+						www.flaticon.com
+					</a>
+				</div>
+				<div>Heart icons made by:&nbsp;
+					<a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">
+						Smashicons&nbsp;
 					</a>
 					from&nbsp;
 					<a href="https://www.flaticon.com/" title="Flaticon">

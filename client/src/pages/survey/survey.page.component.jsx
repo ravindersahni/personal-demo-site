@@ -1,4 +1,5 @@
 import React from 'react';
+import WithErrorBoundary from '../../components/with-error-boundary/with-error-boundary.component';
 
 const SurveyPage = () => {
 	let pageName = 'Survey';
@@ -9,4 +10,4 @@ const SurveyPage = () => {
 	);
 };
 
-export default SurveyPage;
+export default WithErrorBoundary(SurveyPage);
