@@ -4,8 +4,11 @@ import { withRouter } from 'react-router-dom';
 import { LockedKoanArticle, KoanP, KoanButtonContainer } from './locked-koan.styles';
 import Payment from '../../components/payment/payment.component';
 import LogInOutButton from '../../components/log-in-out-button.component/log-in-out-button.component';
+import useDismissLikeModal from '../../custom-hooks/use-dismiss-like-modal';
 
 const LockedKoanPage = ({ params, history, user }) => {
+	useDismissLikeModal();
+
 	if (!user) {
 		return (
 			<LockedKoanArticle>

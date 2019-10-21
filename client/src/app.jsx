@@ -40,8 +40,8 @@ const App = ({ fetchUserStart }) => {
 						<Route exact path="/about" component={AboutPage} />
 						<Route exact path="/" component={LandingPage} />
 						<Route exact path="/koans" component={KoansListPage} />
-						<Route exact path="/koans/:id" component={KoanPage} />
-						<Route path="/koans/:id/locked" component={LockedKoanPage} />
+						<Route exact path="/koans/:koan_id" component={KoanPage} />
+						<Route path="/koans/:koan_id/locked" component={LockedKoanPage} />
 						<Route exact path="/weather" component={WeatherPage} />
 						<Route exact path="/games" component={GamesPage} />
 						<Route exact path="/surveys" component={DashboardPage} />
