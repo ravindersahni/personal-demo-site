@@ -13,10 +13,26 @@ export function* buyCredit({ payload }) {
 	}
 }
 
+export function* buyCreditToUnlockKoan({ payload: { token, koan_id } }) {
+	try {
+		const res = yield call(axios.post, '/api/billing/stripe', token);
+		yield put(CreditActions.buyCreditToUnlockKoanSuccess(res.data, koan_id));
+	} catch (error) {
+		yield put(CreditActions.buyCreditToUnlockKoanFailure(error));
+	}
+}
+
 export function* onBuyCreditStart() {
 	yield takeLatest(CreditActionTypes.BUY_CREDIT_START, buyCredit);
 }
 
+export function* onBuyCreditToUnlockKoanStart() {
+	yield takeLatest(
+		CreditActionTypes.BUY_CREDIT_TO_UNLOCK_KOAN_START,
+		buyCreditToUnlockKoan
+	);
+}
+
 export function* creditSagas() {
-	yield all([ call(onBuyCreditStart) ]);
+	yield all([ call(onBuyCreditStart), call(onBuyCreditToUnlockKoanStart) ]);
 }

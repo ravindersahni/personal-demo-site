@@ -5,7 +5,10 @@ import {
 	LOG_IN_USER,
 	LOG_OUT_USER
 } from './user.types';
-import { BUY_CREDIT_SUCCESS } from '../credit/credit.types';
+import {
+	BUY_CREDIT_SUCCESS,
+	BUY_CREDIT_TO_UNLOCK_KOAN_SUCCESS
+} from '../credit/credit.types';
 
 export default (state = null, action) => {
 	switch (action.type) {
@@ -16,6 +19,11 @@ export default (state = null, action) => {
 			return {
 				...state,
 				credits: action.payload
+			};
+		case BUY_CREDIT_TO_UNLOCK_KOAN_SUCCESS:
+			return {
+				...state,
+				credits: action.payload.credits
 			};
 		case FETCH_USER_FAILURE:
 		case LOG_IN_USER:

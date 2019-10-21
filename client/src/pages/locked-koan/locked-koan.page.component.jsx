@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { LockedKoanArticle, KoanP, KoanButtonContainer } from './locked-koan.styles';
+import { buyCreditToUnlockKoanStart } from '../../redux/credit/credit.actions';
 import Payment from '../../components/payment/payment.component';
 import LogInOutButton from '../../components/log-in-out-button.component/log-in-out-button.component';
 import useDismissLikeModal from '../../custom-hooks/use-dismiss-like-modal';
 
-const LockedKoanPage = ({ params, history, user }) => {
+const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart }) => {
+	const history = useHistory();
+	const { koan_id } = useParams();
+
 	useDismissLikeModal();
+
+	useEffect(
+		() => {
+			if (user && user.credits > 0) {
+				history.replace(`/koans/${koan_id}`);
+			}
+		},
+		[ user, history, koan_id ]
+	);
 
 	if (!user) {
 		return (
@@ -36,7 +49,9 @@ const LockedKoanPage = ({ params, history, user }) => {
 			<h1>You're trying to view a locked koan</h1>
 			<KoanP>That'll cost you 1 credit, but you don't seem to have any.</KoanP>
 			<KoanButtonContainer>
-				<Payment>Buy Credits for Free</Payment>
+				<Payment onToken={token => buyCreditToUnlockKoanStart(token, koan_id)}>
+					Buy Credits for Free
+				</Payment>
 			</KoanButtonContainer>
 		</LockedKoanArticle>
 	);
@@ -44,4 +59,4 @@ const LockedKoanPage = ({ params, history, user }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default withRouter(connect(mapStateToProps, null)(LockedKoanPage));
+export default connect(mapStateToProps, { buyCreditToUnlockKoanStart })(LockedKoanPage);
