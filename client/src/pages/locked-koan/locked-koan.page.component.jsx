@@ -29,7 +29,7 @@ const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart, unlockKoanByIdStart 
 			<LockedKoanArticle>
 				<h1>You need to log in to see koans</h1>
 				<KoanP>
-					The first one was on the house, but from here on out you'll need to unlock them
+					The first one is on the house, but from there on out you'll need to unlock them
 					at the cost of 1 credit a piece.
 				</KoanP>
 				<KoanP>
