@@ -9,6 +9,7 @@ import AboutPage from './pages/about/about.page.component';
 import DashboardPage from './pages/dashboard/dashboard.page.component';
 import KoansListPage from './pages/koans-list/koans-list.page.component';
 import KoanPage from './pages/koan/koan.page.component';
+import LockedKoanPage from './pages/locked-koan/locked-koan.page.component';
 import WeatherPage from './pages/weather/weather.page.component';
 import GamesPage from './pages/games/games.page.component';
 import SurveyPage from './pages/survey/survey.page.component';
@@ -39,7 +40,8 @@ const App = ({ fetchUserStart }) => {
 						<Route exact path="/about" component={AboutPage} />
 						<Route exact path="/" component={LandingPage} />
 						<Route exact path="/koans" component={KoansListPage} />
-						<Route path="/koans/:id" component={KoanPage} />
+						<Route exact path="/koans/:id" component={KoanPage} />
+						<Route path="/koans/:id/locked" component={LockedKoanPage} />
 						<Route exact path="/weather" component={WeatherPage} />
 						<Route exact path="/games" component={GamesPage} />
 						<Route exact path="/surveys" component={DashboardPage} />

@@ -15,7 +15,7 @@ const LockedHeader = ({ children }) => (
 );
 
 const LockedKoanPreview = ({ koan }) => (
-	<FlexLink to={`/koans/${koan._id}`} aria-label={`Link to ${koan.title}`}>
+	<FlexLink to={`/koans/${koan._id}/locked`} aria-label={`Link to locked koan info`}>
 		<StyledArticle locked>
 			<LockedHeader>{koan.title}</LockedHeader>
 		</StyledArticle>
