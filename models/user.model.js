@@ -8,4 +8,6 @@ const userSchema = new Schema({
 	unlockedKoans: [ { type: mongoose.SchemaTypes.ObjectId, ref: 'Koan' } ]
 });
 
-mongoose.model('User', userSchema);
+const UserModel = mongoose.model('User', userSchema);
+
+module.exports = UserModel;

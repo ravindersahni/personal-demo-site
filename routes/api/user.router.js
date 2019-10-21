@@ -4,7 +4,7 @@ const authguard = require('../../middleware/authguard');
 
 router.use(authguard);
 router.get('/koans', userController.getUnlockedKoans);
-router.post('/koans/:id', userController.addUnlockedKoan);
+router.post('/koans', userController.addUnlockedKoan);
 router.get('/koans/favorites', userController.getFavoriteKoans);
 router.get('/koans/favorites/:id', userController.addKoanToFavorites);
 router.delete('/koans/favorites/:id', userController.removeKoanFromFavorites);
