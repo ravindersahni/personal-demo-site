@@ -6,7 +6,7 @@ import * as CreditActions from './credit.actions';
 
 export function* buyCredit({ payload }) {
 	try {
-		const res = yield call(axios.post, 'api/billing/stripe', payload);
+		const res = yield call(axios.post, '/api/billing/stripe', payload);
 		yield put(CreditActions.buyCreditSuccess(res.data));
 	} catch (error) {
 		yield put(CreditActions.buyCreditFailure(error));
