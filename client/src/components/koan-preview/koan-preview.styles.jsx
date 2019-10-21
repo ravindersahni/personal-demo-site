@@ -45,7 +45,7 @@ export const LockedH1 = styled(StyledH1)`
 	margin-bottom: 1.5rem;
 `;
 
-export const FlexLink = styled(Link)`display: flex; width: 100%`;
+export const FlexLink = styled(Link)`display: flex; width: 100%; border-radius: 100%;`;
 
 export const KoanLockIcon = styled(LockIcon)`
 	height: 1.5rem;
