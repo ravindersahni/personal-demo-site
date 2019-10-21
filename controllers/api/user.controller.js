@@ -18,9 +18,10 @@ exports.addUnlockedKoan = async (req, res, next) => {
 		const updatedUser = await User.findByIdAndUpdate(
 			user._id,
 			{
+				$inc: { credits: -1 },
 				$push: { unlockedKoans: mongoose.Types.ObjectId(koan_id) }
 			},
-			{ new: true }
+			{ new: true, useFindAndModify: false }
 		);
 		res.json(updatedUser);
 	} catch (error) {
