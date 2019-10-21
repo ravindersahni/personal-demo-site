@@ -1,20 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logInUser, logOutUser } from '../../redux/user/user.actions';
 import Payment from '../payment/payment.component';
-import CustomButton from '../custom-button/custom-button.styles';
+import LogInOutButton from '../log-in-out-button.component/log-in-out-button.component';
 
-const DynamicNavList = ({ user, logInUser, logOutUser }) => {
+const DynamicNavList = ({ user }) => {
 	switch (user) {
 		case null:
 			return null;
 		case false:
 			return (
 				<ul>
-					<li key="login">
-						<CustomButton type="button" onClick={logInUser}>
-							Log In with Google
-						</CustomButton>
+					<li key="loginOut">
+						<LogInOutButton />
 					</li>
 				</ul>
 			);
@@ -23,11 +20,9 @@ const DynamicNavList = ({ user, logInUser, logOutUser }) => {
 				<ul>
 					<li key="payment">
 						<Payment>Credits: {user.credits}</Payment>
-					</li>,
+					</li>
 					<li key="logout">
-						<CustomButton type="button" onClick={logOutUser}>
-							Log Out
-						</CustomButton>
+						<LogInOutButton />
 					</li>
 				</ul>
 			);
@@ -36,4 +31,4 @@ const DynamicNavList = ({ user, logInUser, logOutUser }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps, { logInUser, logOutUser })(DynamicNavList);
+export default connect(mapStateToProps)(DynamicNavList);
