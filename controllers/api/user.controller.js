@@ -22,7 +22,6 @@ exports.addUnlockedKoan = async (req, res, next) => {
 			},
 			{ new: true }
 		);
-		console.log('updatedUser', updatedUser);
 		res.json(updatedUser);
 	} catch (error) {
 		next(error);
