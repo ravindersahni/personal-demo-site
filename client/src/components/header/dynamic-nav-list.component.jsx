@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Payment from '../payment/payment.component';
 import LogInOutButton from '../log-in-out-button.component/log-in-out-button.component';
+import { buyCreditStart } from '../../redux/credit/credit.actions';
 
-const DynamicNavList = ({ user }) => {
+const DynamicNavList = ({ user, buyCreditStart }) => {
 	switch (user) {
 		case null:
 			return null;
@@ -19,7 +20,7 @@ const DynamicNavList = ({ user }) => {
 			return (
 				<ul>
 					<li key="payment">
-						<Payment>Credits: {user.credits}</Payment>
+						<Payment onToken={buyCreditStart}>Credits: {user.credits}</Payment>
 					</li>
 					<li key="logout">
 						<LogInOutButton />
@@ -31,4 +32,4 @@ const DynamicNavList = ({ user }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps)(DynamicNavList);
+export default connect(mapStateToProps, { buyCreditStart })(DynamicNavList);

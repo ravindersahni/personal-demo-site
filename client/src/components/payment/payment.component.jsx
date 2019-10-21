@@ -1,16 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import CustomButton from '../custom-button/custom-button.styles';
-import { buyCreditStart } from '../../redux/credit/credit.actions';
 
-const Payment = ({ buyCreditStart, children }) => {
+const Payment = ({ onToken, children }) => {
 	return (
 		<StripeCheckout
 			name="Use these demo values:"
 			description="4242 4242 4242 4242, 01/22, 123"
 			amount={500}
-			token={buyCreditStart}
+			token={onToken}
 			stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
 		>
 			<CustomButton type="button" className="">
@@ -20,4 +18,4 @@ const Payment = ({ buyCreditStart, children }) => {
 	);
 };
 
-export default connect(null, { buyCreditStart })(Payment);
+export default Payment;
