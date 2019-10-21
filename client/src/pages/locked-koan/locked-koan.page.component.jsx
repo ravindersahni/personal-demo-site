@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { LockedKoanArticle, KoanP, KoanButtonContainer } from './locked-koan.styles';
 import { buyCreditToUnlockKoanStart } from '../../redux/credit/credit.actions';
+import { unlockKoanByIdStart } from '../../redux/user/user.actions';
 import Payment from '../../components/payment/payment.component';
+import CustomButton from '../../components/custom-button/custom-button.styles';
 import LogInOutButton from '../../components/log-in-out-button.component/log-in-out-button.component';
 import useDismissLikeModal from '../../custom-hooks/use-dismiss-like-modal';
 
-const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart }) => {
+const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart, unlockKoanByIdStart }) => {
 	const history = useHistory();
 	const { koan_id } = useParams();
 
@@ -15,7 +17,7 @@ const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart }) => {
 
 	useEffect(
 		() => {
-			if (user && user.credits > 0) {
+			if (user && user.unlockedKoans.some(id => id === koan_id)) {
 				history.replace(`/koans/${koan_id}`);
 			}
 		},
@@ -42,7 +44,15 @@ const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart }) => {
 	}
 	return user.credits ? (
 		<LockedKoanArticle>
-			<h1>To be replaced with the unlocking flow</h1>
+			<h1>You have the power</h1>
+			<KoanP>
+				It'll cost you 1 credit to unlock this koan, but you're basically loaded.
+			</KoanP>
+			<KoanButtonContainer>
+				<CustomButton type="button" onClick={() => unlockKoanByIdStart(koan_id)}>
+					I'm worth it!
+				</CustomButton>
+			</KoanButtonContainer>
 		</LockedKoanArticle>
 	) : (
 		<LockedKoanArticle>
@@ -59,4 +69,7 @@ const LockedKoanPage = ({ user, buyCreditToUnlockKoanStart }) => {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default connect(mapStateToProps, { buyCreditToUnlockKoanStart })(LockedKoanPage);
+export default connect(mapStateToProps, {
+	buyCreditToUnlockKoanStart,
+	unlockKoanByIdStart
+})(LockedKoanPage);

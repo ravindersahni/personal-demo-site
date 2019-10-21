@@ -21,3 +21,18 @@ export const logInUser = () => ({
 export const logOutUser = () => ({
 	type: UserActionTypes.LOG_OUT_USER
 });
+
+export const unlockKoanByIdStart = koan_id => ({
+	type: UserActionTypes.UNLOCK_KOAN_BY_ID_START,
+	payload: { id: koan_id }
+});
+
+export const unlockKoanByIdSuccess = user => ({
+	type: UserActionTypes.UNLOCK_KOAN_BY_ID_SUCCESS,
+	payload: user
+});
+
+export const unlockKoanByIdFailure = error => ({
+	type: UserActionTypes.UNLOCK_KOAN_BY_ID_FAILURE,
+	payload: error
+});

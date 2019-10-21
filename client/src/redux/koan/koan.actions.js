@@ -42,18 +42,3 @@ export const fetchKoanByIdFailure = error => ({
 	type: KoanActionTypes.FETCH_KOAN_BY_ID_FAILURE,
 	payload: error
 });
-
-export const unlockKoanByIdStart = koan_id => ({
-	type: KoanActionTypes.UNLOCK_KOAN_BY_ID_START,
-	payload: { id: koan_id }
-});
-
-export const unlockKoanByIdSuccess = koan => ({
-	type: KoanActionTypes.UNLOCK_KOAN_BY_ID_SUCCESS,
-	payload: koan
-});
-
-export const unlockKoanByIdFailure = error => ({
-	type: KoanActionTypes.UNLOCK_KOAN_BY_ID_FAILURE,
-	payload: error
-});

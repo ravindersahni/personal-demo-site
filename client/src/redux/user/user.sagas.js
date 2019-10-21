@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import * as UserActionTypes from './user.types';
 import * as UserActions from './user.actions';
+import * as CreditActionTypes from '../credit/credit.types';
 
 export function* fetchUser() {
 	try {
@@ -21,6 +22,19 @@ export function* logOutUser() {
 	yield window.open('/auth/logout', '_self');
 }
 
+export function* unlockKoanById({ payload: { id } }) {
+	try {
+		const res = yield call(axios.post, `/api/user/koans`, { koan_id: id });
+		yield put(UserActions.unlockKoanByIdSuccess(res.data));
+	} catch (error) {
+		yield put(UserActions.unlockKoanByIdFailure(error));
+	}
+}
+
+export function* unlockKoanAfterBuyingCredit({ payload: { koan_id } }) {
+	yield put(UserActions.unlockKoanByIdStart(koan_id));
+}
+
 export function* onFetchUserStart() {
 	yield takeLatest(UserActionTypes.FETCH_USER_START, fetchUser);
 }
@@ -33,6 +47,23 @@ export function* onLogOutUser() {
 	yield takeLatest(UserActionTypes.LOG_OUT_USER, logOutUser);
 }
 
+export function* onBuyCreditToUnlockKoanSuccess() {
+	yield takeLatest(
+		CreditActionTypes.BUY_CREDIT_TO_UNLOCK_KOAN_SUCCESS,
+		unlockKoanAfterBuyingCredit
+	);
+}
+
+export function* onUnlockKoanByIdStart() {
+	yield takeLatest(UserActionTypes.UNLOCK_KOAN_BY_ID_START, unlockKoanById);
+}
+
 export function* userSagas() {
-	yield all([ call(onFetchUserStart), call(onLogInUser), call(onLogOutUser) ]);
+	yield all([
+		call(onFetchUserStart),
+		call(onLogInUser),
+		call(onLogOutUser),
+		call(onBuyCreditToUnlockKoanSuccess),
+		call(onUnlockKoanByIdStart)
+	]);
 }

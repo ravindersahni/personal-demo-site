@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
 	StyledArticle,
 	StyledH1,
@@ -30,11 +31,15 @@ const OpenKoanPreview = ({ koan }) => (
 	</FlexLink>
 );
 
-const KoanPreview = ({ koan }) =>
-	Boolean(Math.floor(Math.random() * 2) - 1) ? (
+const KoanPreview = ({ koan, unlockedKoans }) =>
+	unlockedKoans.some(id => id === koan._id) ? (
 		<OpenKoanPreview koan={koan} />
 	) : (
 		<LockedKoanPreview koan={koan} />
 	);
 
-export default KoanPreview;
+const mapStateToProps = state => ({
+	unlockedKoans: (state.user || {}).unlockedKoans || []
+});
+
+export default connect(mapStateToProps)(KoanPreview);
