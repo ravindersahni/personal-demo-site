@@ -1,7 +1,7 @@
 exports.logInWithGoogle = () => {};
 
 exports.getGoogleCallback = (req, res) => {
-	res.redirect('/surveys');
+	res.redirect('/koans');
 };
 
 exports.performLogout = (req, res) => {
