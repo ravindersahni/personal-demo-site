@@ -10,7 +10,22 @@ export const WeatherPage = ({ getForecastStart, forecast }) => {
 		},
 		[ getForecastStart ]
 	);
-	return <h1>Weather</h1>;
+
+	return (
+		<React.Fragment>
+			<h1>Current Weather (data dump for now)</h1>
+			<dl>
+				{forecast ? (
+					Object.entries(forecast.currently).map(([ k, v ]) => (
+						<React.Fragment key={k}>
+							<dt>{k}</dt>
+							<dd>{v}</dd>
+						</React.Fragment>
+					))
+				) : null}
+			</dl>
+		</React.Fragment>
+	);
 };
 
 const mapStateToProps = ({ weather }) => ({

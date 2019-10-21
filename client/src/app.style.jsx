@@ -32,7 +32,17 @@ const GlobalStyle = createGlobalStyle`
 		}
 		.switch-wrapper > div {
 			margin: 0;
-			padding: 7rem 1rem 1rem;
+			padding: 1rem 1rem 1rem;
+
+			@media (min-width: 520px) {
+				padding-top: 7rem;
+			}
+
+			&.fixed {
+				@media (max-width: 519px) {
+					padding-top: 7rem;
+				}
+			}
 			@media screen and (min-width: 800px) {
 				padding: 20px 40px;
 				padding-top: 4rem;

@@ -5,15 +5,24 @@ export const HeaderContainer = styled.header`
 	padding: 0 1rem;
 	display: flex;
 	flex-direction: column-reverse;
-	position: fixed;
+	position: static;
 	justify-content: space-between;
 	align-items: center;
 	color: #181818;
 	background-color: #dedede;
 	box-shadow: 1px 1px 3px #232323;
 
+	&.fixed {
+		@media (max-width: 519px) {
+			position: fixed;
+			margin-top: -3rem;
+		}
+	}
+
 	@media (min-width: 520px) {
 		flex-direction: row;
+		position: fixed;
+		margin-top: 0;
 	}
 `;
 
