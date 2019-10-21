@@ -1,22 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const KoanArticle = styled.article`
-	max-width: 30rem;
-	margin: 0 auto 1rem;
-	@media (min-width: 600px) {
-		margin: 1rem auto 2rem;
-	}
-	padding: 1rem;
-	min-height: 95%;
-	background-color: #dedede;
-	color: #232323;
-`;
-
-const KoanP = styled.p`
-	line-height: 1.7;
-	margin-bottom: 2rem;
-`;
+import { KoanArticle, KoanP } from './koan.styles';
 
 const Koan = ({ koan }) => (
 	<KoanArticle>
