@@ -12,7 +12,7 @@ const LockedKoanPage = ({ params, history, user }) => {
 				<h1>You need to log in to see koans</h1>
 				<KoanP>
 					The first one was on the house, but from here on out you'll need to unlock them
-					for the price of 1 credit a piece.
+					at the cost of 1 credit a piece.
 				</KoanP>
 				<KoanP>
 					Good news, though! Credits are free. You just need to go through the process and
