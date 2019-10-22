@@ -34,6 +34,7 @@ const NavContainer = styled.nav`
 	align-items: center;
 	ul {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		list-style-type: none;

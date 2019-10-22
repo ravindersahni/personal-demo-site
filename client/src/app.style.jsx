@@ -12,8 +12,14 @@ const GlobalStyle = createGlobalStyle`
 		background-color: #232323;
 		height: 100%;
 
-		div#root, main, .switch-wrapper {
+		div#root, .switch-wrapper {
 			height: 100%;
+		}
+		main {
+			height: calc(100% - 6rem);
+			@media (min-width: 520px) {
+				height: 100%;
+			}
 		}
 		.switch-wrapper {
 			position: relative;
