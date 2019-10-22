@@ -40,6 +40,10 @@ const NavContainer = styled.nav`
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
+
+		@media (min-width: 520px) {
+			flex-wrap: nowrap;
+		}
 		li {
 			display: flex;
 			justify-content: center;
