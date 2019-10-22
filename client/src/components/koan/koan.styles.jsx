@@ -10,6 +10,10 @@ export const KoanArticle = styled.article`
 	min-height: 95%;
 	background-color: #dedede;
 	color: #232323;
+
+	h1 {
+		margin-bottom: 3rem;
+	}
 `;
 
 export const KoanP = styled.p`
