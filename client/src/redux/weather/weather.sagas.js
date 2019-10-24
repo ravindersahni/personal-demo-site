@@ -4,6 +4,7 @@ import * as WeatherActionTypes from './weather.types';
 import * as WeatherActions from './weather.actions';
 
 const API_ROOT = process.env.REACT_APP_API_ROOT;
+axios.defaults.withCredentials = true;
 
 export function* getForecast() {
 	try {

@@ -6,6 +6,7 @@ import * as UserActions from './user.actions';
 import * as CreditActionTypes from '../credit/credit.types';
 
 const API_ROOT = process.env.REACT_APP_API_ROOT;
+axios.defaults.withCredentials = true;
 
 export function* fetchUser() {
 	try {

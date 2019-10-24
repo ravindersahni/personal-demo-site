@@ -5,6 +5,7 @@ import * as CreditActionTypes from './credit.types';
 import * as CreditActions from './credit.actions';
 
 const API_ROOT = process.env.REACT_APP_API_ROOT;
+axios.defaults.withCredentials = true;
 
 export function* buyCredit({ payload }) {
 	try {

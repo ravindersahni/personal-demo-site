@@ -4,6 +4,7 @@ import * as KoanActionTypes from './koan.types';
 import * as KoanActions from './koan.actions';
 
 const API_ROOT = process.env.REACT_APP_API_ROOT;
+axios.defaults.withCredentials = true;
 
 export function* fetchKoanPreviews() {
 	try {
