@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 
-const env = process.env.NODE_ENV || 'development';
-if (env === 'development') {
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+const isDev = process.env.NODE_ENV === 'development';
+
+if (isDev) {
 	require('dotenv').config();
 }
 
+const cors = require('cors');
 const compression = require('compression');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
@@ -19,6 +22,11 @@ const errorMiddleware = require('./middleware/error');
 mongodb.connect();
 
 app.use(express.json());
+app.use(
+	cors({
+		origin: isDev || /^(www\.)?ravindersahni\.com$/
+	})
+);
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60,
