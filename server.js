@@ -24,7 +24,8 @@ mongodb.connect();
 app.use(express.json());
 app.use(
 	cors({
-		origin: isDev || /^(www\.)?ravindersahni\.com$/
+		origin: isDev || /^https:\/\/(www\.)?ravindersahni\.com$/,
+		credentials: true
 	})
 );
 app.use(
