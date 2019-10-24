@@ -5,9 +5,11 @@ import * as UserActionTypes from './user.types';
 import * as UserActions from './user.actions';
 import * as CreditActionTypes from '../credit/credit.types';
 
+const API_ROOT = process.env.REACT_APP_API_ROOT;
+
 export function* fetchUser() {
 	try {
-		const res = yield call(axios.get, '/auth/current-user');
+		const res = yield call(axios.get, `${API_ROOT}/auth/current-user`);
 		yield put(UserActions.fetchUserSuccess(res.data));
 	} catch (error) {
 		yield put(UserActions.fetchUserFailure(error));
@@ -15,16 +17,16 @@ export function* fetchUser() {
 }
 
 export function* logInUser() {
-	yield window.open('/auth/google', '_top');
+	yield window.open(`${API_ROOT}/auth/google`, '_top');
 }
 
 export function* logOutUser() {
-	yield window.open('/auth/logout', '_self');
+	yield window.open(`${API_ROOT}/auth/logout`, '_self');
 }
 
 export function* unlockKoanById({ payload: { id } }) {
 	try {
-		const res = yield call(axios.post, `/api/user/koans`, { koan_id: id });
+		const res = yield call(axios.post, `${API_ROOT}/api/user/koans`, { koan_id: id });
 		yield put(UserActions.unlockKoanByIdSuccess(res.data));
 	} catch (error) {
 		yield put(UserActions.unlockKoanByIdFailure(error));

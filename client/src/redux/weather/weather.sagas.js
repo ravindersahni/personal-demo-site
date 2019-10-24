@@ -3,9 +3,11 @@ import axios from 'axios';
 import * as WeatherActionTypes from './weather.types';
 import * as WeatherActions from './weather.actions';
 
+const API_ROOT = process.env.REACT_APP_API_ROOT;
+
 export function* getForecast() {
 	try {
-		const res = yield call(axios.get, '/api/weather/40.44062, -79.99589');
+		const res = yield call(axios.get, `${API_ROOT}/api/weather/40.44062, -79.99589`);
 		yield put(WeatherActions.getForecastSuccess(res.data));
 	} catch (error) {
 		yield put(WeatherActions.getForecastFailure(error));

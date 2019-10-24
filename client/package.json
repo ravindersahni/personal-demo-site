@@ -22,6 +22,9 @@
 		"start": "react-scripts start",
 		"build_no_sw": "react-scripts build",
 		"build": "react-scripts build && sw-precache-cra --config sw-config.js",
+		"predeploy": "yarn build",
+		"deploy": "aws s3 sync build/ s3://ravindersahni.com",
+		"postdeploy": "aws cloudfront create-invalidation --distribution-id E4U8GIJWSE576 --paths '/*' && rm -rf build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
 	},
@@ -29,11 +32,7 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
+		"production": [ ">0.2%", "not dead", "not op_mini all" ],
 		"development": [
 			"last 1 chrome version",
 			"last 1 firefox version",

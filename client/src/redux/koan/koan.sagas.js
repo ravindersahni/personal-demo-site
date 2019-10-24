@@ -3,9 +3,11 @@ import axios from 'axios';
 import * as KoanActionTypes from './koan.types';
 import * as KoanActions from './koan.actions';
 
+const API_ROOT = process.env.REACT_APP_API_ROOT;
+
 export function* fetchKoanPreviews() {
 	try {
-		const res = yield call(axios.get, 'api/koans/previews');
+		const res = yield call(axios.get, `${API_ROOT}/api/koans/previews`);
 		yield put(KoanActions.fetchKoanPreviewsSuccess(res.data));
 	} catch (error) {
 		yield put(KoanActions.fetchKoanPreviewsFailure(error));
@@ -14,7 +16,7 @@ export function* fetchKoanPreviews() {
 
 export function* fetchKoans() {
 	try {
-		const res = yield call(axios.get, 'api/koans');
+		const res = yield call(axios.get, `${API_ROOT}/api/koans`);
 		yield put(KoanActions.fetchKoansSuccess(res.data));
 	} catch (error) {
 		yield put(KoanActions.fetchKoansFailure(error));
@@ -23,7 +25,7 @@ export function* fetchKoans() {
 
 export function* fetchKoanById({ payload: { id } }) {
 	try {
-		const res = yield call(axios.get, `/api/koans/${id}`);
+		const res = yield call(axios.get, `${API_ROOT}/api/koans/${id}`);
 		yield put(KoanActions.fetchKoanByIdSuccess(res.data));
 	} catch (error) {
 		yield put(KoanActions.fetchKoanByIdFailure(error));
