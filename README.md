@@ -5,13 +5,14 @@ You've somehow found your way to the source code for my personal demo site, and 
 This chimeric application will likely forever be a work in progress, but I aim to move it steadily towards something representative of my skills as an engineer, architect, problem-solver, and general creative type.
 
 ## Todos
+* ~~Add locks to Koan Previews~~
+* ~~Add ErrorBoundaries~~
+* ~~Migrate from Heroku to AWS Beanstalk / AWS CloudFront~~
 * Add content to README 'Welcome!' section
 * Add About Page
-* Add locks to Koan Previews
 * Add credits for icons
 * Add license/use info for Gateless Gate koans
 * Add favoriting ability to unlocked Koans
-* Add ErrorBoundary
 * Add Suspense
 * Replace janky route transition animation
 * Add Weather Page with CSS animation representations of weather
@@ -19,4 +20,4 @@ This chimeric application will likely forever be a work in progress, but I aim t
 * Add Snake Game with ability to earn credits
 * Offer more login strategies (move to Auth0?)
 * Add tests, tests, and more tests
-* Migrate from Heroku to AWS Beanstalk and create CI/CD pipeline?
+* Create CI/CD pipeline
